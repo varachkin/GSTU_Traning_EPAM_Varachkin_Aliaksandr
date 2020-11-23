@@ -1,36 +1,44 @@
+/*Указал загруженный шрифт*/
 @font-face {
     font-family: Roboto;
-    src: url(../ttf/Roboto-Medium.ttf);
+    src: url(../fonts/Roboto-Medium.ttf);
 }
+/*Шрифт для боди и убрал отступ по умолчанию*/
 body{
     margin: 0;
     font-family: Roboto, sans-serif;
-    background-color: #fff5e3;
+    background-color: #f1f1f1;
 }
+/*Обёртка, что бы прячущаяся меню справа не скролила страницу*/
 .wrapper{
     display: flex;
     min-height: 100%;
     overflow: hidden;
     flex-direction: column;
 }
+/*Контейнер ограничивающий контент 1400 px*/
 .container{
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
 }
+/*Флексовый контейнер, что бы можно было переистользовать в повторяющихся флекс-контейнерах*/
 .flex-container{
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
+/*меню справа, при нажатии на бургер*/
+/*Позиционирование для вырывания из контекста absolute,*/
+/*Смещено вправо, что бы по дефолту не было видно.*/
 .open-menu{
     position: absolute;
     z-index: 1;
-    right: -80vw;
+    right: -60vw;
     top: 0;
     bottom: 0;
-    width: 0;
+    width: 60vw;
     height: 100vh;
     background-color: rgba(24,24,24,0.7);
     display: flex;
@@ -38,9 +46,12 @@ body{
     justify-content: center;
     transition: 1s;
 }
+/*Чекбокс, для определения состояния, при открытии open-menu или закрытии*/
 .input-burger-menu{
     display: none;
 }
+/*Иконка бургера, позиционирование + дисплей нан в дефолтном состоянии*/
+/*Будет появляться посредством медиазапроса*/
 #burger-menu span{
     position: absolute;
     z-index: 2;
@@ -49,7 +60,10 @@ body{
     color: white;
     font-size: 40px;
     padding: 5px 10px;
+    display: none;
 }
+/*Иконка закрытия open-menu, позиционирование, дисплей нан по дефолту, */
+/*появляется при открытии open-menu*/
 #burger-menu-close span{
     color: white;
     font-size: 40px;
@@ -60,30 +74,34 @@ body{
     display: none;
     z-index: 2;
 }
+/*Убрал стили списка*/
 .link-list{
     list-style: none;
 }
 .link-list li{
     padding: 40px;
 }
+/*Стили ссылок списка*/
 .link-list li a{
     text-decoration: none;
     color: white;
-    font-size: 40px;
+    font-size: 26px;
 }
+/*При нажатии на бургер(чекнутый чекбокс) бургер пропадает*/
 .input-burger-menu:checked + #burger-menu{
     display: none;
 }
-.input-burger-menu:checked + #burger-menu-close{
+/*При нажатии на бургер(чекнутый чекбокс) блок open-menu меняет позицию и становиться видимым*/
+.input-burger-menu:checked ~ .open-menu{
+    position: absolute;
+    right: 0;
+    transition: 0.5s;
+}
+/*При нажатии на бургер(чекнутый чекбокс) бургер пропадает, появляется крестик*/
+.input-burger-menu:checked ~ #burger-menu-close span{
     display: block;
 }
-
-
-
-
-
-
-
+/*Стили шапки*/
 .header{
     height: 100px;
     width: 100%;
@@ -91,46 +109,93 @@ body{
     display: flex;
     align-items: center;
     position: fixed;
+    z-index: 2;
 }
+/*стили контейнера с ссылками шапки*/
 .header_link{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-}
-.header_logo{
-    padding: 0 30px;
+    justify-content: center;
 }
 .logo_image{
     display: inline-block;
     width: 300px;
     height: 60px;
 }
+/*стили ссылок шапки*/
 .header_link a{
-    padding: 0 30px;
+    padding: 5px 15px;
+    margin-left: 30px;
     color: #d6d6d6;
     text-decoration: none;
     font-size: 26px;
     transition: 0.3s;
 }
+/*стили ссылок шапки при наведении мыши*/
 .header_link a:hover{
     color: #fedfc5;
     box-shadow:1px 1px 1px 3px rgba(148,154,255,0.12);
+    border-radius: 42%;
 }
+/*Контент страницы с минимальной высотой, что бы если контента мало, футер был внизу страницы*/
 .main{
     margin-top: 100px;
-    padding: 10px 5px;
+    padding: 10px 15px;
     min-height: calc(100vh - 171px);
 }
+/*Меню слева. Позиционирование нужно для того, что бы при скроле не перекрывало шапку*/
+.menu{
+    width: 150px;
+    margin-right: 10px;
+    background-color: #f1f1f1;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+/*Стили пунктов меню*/
+.menu ul li{
+    font-size: 18px;
+    font-weight: 700;
+    margin: 20px 0;
+    border-top: 1px solid rgba(24,24,24, 0.2);
+    border-bottom: 1px solid rgba(24,24,24, 0.2);
+    width: 110px;
+}
+.menu ul li a{
+    text-decoration: none;
+    color: #181818;
+    transition: 0.4s;
+}
+.menu ul li a:hover{
+    margin-left: 10px;
+    color: #005493;
+}
+/*Ограничение контента 1400px */
+.main_block{
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.main_content{
+    background-color: #fffbf5;
+}
+.main_menu{
+    list-style: none;
+    padding: 0 5px 0 5px;
+}
+/*Стили подвала*/
 .footer{
     border-top: 1px solid #7f7f7f;
     height: 50px;
     width: 100%;
-    background: linear-gradient(#fff5e3, #d3d1bb);
+    background: linear-gradient(#fffbf5, #d3d1bb);
 }
+/*Стили контента подвала*/
 .footer_content{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     font-size: 12px;
 }
@@ -141,4 +206,25 @@ body{
 }
 .footer_content div div a:hover{
     color: #ff001d;
+}
+/*Медиазапрос, при достижении ширины экрана девайса 960 появлялся бургер и исчезали ссылки шапки*/
+@media (max-width: 960px) {
+    #burger-menu span{
+        display: block;
+    }
+    .header_link > a{
+        display: none;
+    }
+    .logo_image{
+        width: 150px;
+        height: 30px;
+    }
+    .menu{
+        display: none;
+    }
+}
+@media (max-width: 460px) {
+    .link-list li a{
+        font-size: 16px;
+    }
 }
