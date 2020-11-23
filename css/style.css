@@ -130,12 +130,13 @@ body{
     text-decoration: none;
     font-size: 26px;
     transition: 0.3s;
+    border-radius: 42%;
 }
 /*стили ссылок шапки при наведении мыши*/
 .header_link a:hover{
     color: #fedfc5;
     box-shadow:1px 1px 1px 3px rgba(148,154,255,0.12);
-    border-radius: 42%;
+    border-radius: 3%;
 }
 /*Контент страницы с минимальной высотой, что бы если контента мало, футер был внизу страницы*/
 .main{
@@ -178,7 +179,11 @@ body{
     margin: 0 auto;
 }
 .main_content{
-    background-color: #fffbf5;
+    background: linear-gradient(to left, #f1f1f1, #f9f7eb, #f1f1f1);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
 }
 .main_menu{
     list-style: none;
@@ -216,8 +221,8 @@ body{
         display: none;
     }
     .logo_image{
-        width: 150px;
-        height: 30px;
+        width: 200px;
+        height: 40px;
     }
     .menu{
         display: none;
