@@ -1,0 +1,20 @@
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+th{
+    border: 1px solid black;
+    font-size: 20px;
+}
+td{
+    text-align: center;
+    border: 1px solid black;
+}
+tr{
+
+}
+.main_content{
+    align-items: center;
+}
