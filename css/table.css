@@ -18,3 +18,15 @@ tr{
 .main_content{
     align-items: center;
 }
+.td_1{
+    width: 40px;
+}
+.td_4{
+    width: 200px;
+}
+.td_5{
+    width: 100px;
+}
+#one:checked > table{
+
+}
