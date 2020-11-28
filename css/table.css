@@ -4,9 +4,16 @@ table{
     border: 1px solid black;
     margin-top: 20px;
 }
+form{
+    width: 100%;
+}
+input:hover, label:hover{
+    cursor: pointer;
+}
 th{
     border: 1px solid black;
     font-size: 20px;
+    background-color: rgba(127, 127, 127, 0.6);
 }
 td{
     text-align: center;
@@ -19,14 +26,58 @@ tr{
     align-items: center;
 }
 .td_1{
-    width: 40px;
+    min-width: 40px;
 }
 .td_4{
-    width: 200px;
+    width: 130px;
 }
 .td_5{
-    width: 100px;
+    min-width: 50px;
 }
-#one:checked > table{
+.td_6{
+    min-width: 70px;
+}
+#input_style_1:checked ~ table .tr:nth-child(even){
+    background-color: rgba(255, 213, 0, 0.1);
+}
+#input_style_2:checked ~ table .tr{
+    font-family: Texturina, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+}
+#input_style_3:checked ~ table .tr{
+    font-family: Oswald, sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+#input_style_4:checked ~ .table{
+    background-color: #2f2f2f;
+    color: white;
+}
+#input_style_4:checked ~ table .tr td{
+    border: 0;
+    font-weight: 200;
+    padding: 5px;
+}
+#input_style_4:checked ~ table .th th{
+    border: 0;
+    font-weight: 200;
+    color: #0d64a3;
+    background-color: #2f2f2f;
+    padding: 5px;
+}
+#input_style_4:checked ~ table .tr{
+    border: 1px solid #ffa400;
+}
+#input_style_4:checked ~ table .th{
+    border: 1px solid #ffa400;
+}
 
+@media (max-width: 630px) {
+    .td_4{
+        display: none;
+    }
+    .td_5{
+        display: none;
+    }
 }
