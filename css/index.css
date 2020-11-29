@@ -1,6 +1,8 @@
+/*выравнивает заголовки по центру*/
 h2{
     text-align: center;
 }
+/*Стили блока с картинками, wrap для переноса блоков при адаптиве*/
 .main_content-box{
     width: 100%;
     display: flex;
@@ -8,6 +10,7 @@ h2{
     justify-content: center;
     align-items: center;
 }
+/*Стили блока с картинкой, position relative для того, что бы позиционировать элемент, внутри этого блока*/
 .main_content-box-card{
     width: 40%;
     margin: 5px;
@@ -20,9 +23,8 @@ h2{
     background-color: #f8f5f3;
     position: relative;
 }
-.card-text{
-
-}
+/*ограничение блока с картинкой по высоте, что бы высота была жеской, а у блоков с текстом, */
+/*под высоту контента и описание стилей бэкграунд имэйдж*/
 .card-picture{
     height: 350px;
     background-position: center center;
@@ -41,9 +43,7 @@ h2{
 .picture_4{
     background-image: url(../img/4.jpg);
 }
-.card-picture:hover div{
-    opacity: 0.7;
-}
+/*Стили надписи в картинке, которая появляется, при наведении + ее позиционирование*/
 .card-picture-overlay{
     position: absolute;
     bottom: 10px;
@@ -60,13 +60,17 @@ h2{
     border-radius: 5px;
     z-index: 1;
 }
-.card-picture-overlay:hover{
+/*Появление надписи при наведении. Сделано через прозрачность*/
+.card-picture:hover div{
+    opacity: 0.7;
     cursor: pointer;
 }
+/*Стиль блока с информацией*/
 .information_section{
     padding: 15px 7px 30px;
     background: linear-gradient(to left, #f1f1f1, #f9f7eb, #f1f1f1);
 }
+/*растягивает блоки с картинками и описанием к ним на 85% ширины, на экранах с шириной меньше 643*/
 @media (max-width: 643px) {
     .main_content-box-card{
         min-width: 85%;
