@@ -97,4 +97,13 @@ tr{
     .td_5{
         display: none;
     }
+    .td_1{
+        min-width: 22px;
+    }
+    th{
+        font-size: 16px;
+    }
+    td{
+        font-size: 14px;
+    }
 }
