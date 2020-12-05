@@ -1,0 +1,78 @@
+/*выравнивает заголовки по центру*/
+h2{
+    text-align: center;
+}
+/*Стили блока с картинками, wrap для переноса блоков при адаптиве*/
+.main_content-box{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+/*Стили блока с картинкой, position relative для того, что бы позиционировать элемент, внутри этого блока*/
+.main_content-box-card{
+    width: 40%;
+    margin: 5px;
+    border: 1px solid #7a7a7a;
+    min-width: 270px;
+    padding: 12px;
+    font-size: 18px;
+    box-shadow: -1px 1px 29px -5px rgb(140, 117, 85);
+    border-radius: 5px;
+    background-color: #f8f5f3;
+    position: relative;
+}
+/*ограничение блока с картинкой по высоте, что бы высота была жеской, а у блоков с текстом, */
+/*под высоту контента и описание стилей бэкграунд имэйдж*/
+.card-picture{
+    height: 350px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.picture_1{
+    background-image: url(../img/1.jpg);
+}
+.picture_2{
+    background-image: url(../img/2.jpg);
+}
+.picture_3{
+    background-image: url(../img/3.jpg);
+}
+.picture_4{
+    background-image: url(../img/4.jpg);
+}
+/*Стили надписи в картинке, которая появляется, при наведении + ее позиционирование*/
+.card-picture-overlay{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    z-index: 1;
+}
+/*Появление надписи при наведении. Сделано через прозрачность*/
+.card-picture:hover div{
+    opacity: 0.7;
+    cursor: pointer;
+}
+/*Стиль блока с информацией*/
+.information_section{
+    padding: 15px 7px 30px;
+    background: linear-gradient(to left, #f1f1f1, #f9f7eb, #f1f1f1);
+}
+/*растягивает блоки с картинками и описанием к ним на 85% ширины, на экранах с шириной меньше 643*/
+@media (max-width: 643px) {
+    .main_content-box-card{
+        min-width: 85%;
+    }
+}

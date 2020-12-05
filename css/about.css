@@ -1,0 +1,73 @@
+/*флекс контейнер, длявыравнивания карточек контактов, wrap для переноса карточки, */
+/*когда не помещается на экране*/
+.flex-box{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+/*прижимает инпуты к левому краю и задает им одинаковую ширину*/
+.titles{
+    width: 250px;
+    float: left;
+}
+/*Стили блока с карточками контактов*/
+.vcard{
+    box-shadow: 2px 1px 27px 0 rgba(174, 174, 174, 0.39) inset;
+    border-radius: 5px;
+    margin:10px;
+    padding: 7px;
+    height:440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 280px;
+    width: 30%;
+}
+.vcard:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+/*Стили картинок в карточках с контактами*/
+.vcard img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+.email a{
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+.email a:hover{
+    cursor: pointer;
+
+    color: #ffa400;
+}
+/*Стили блока, где расположена форма обратной связи. ширина указана, что бы*/
+/*корректно отображалось на телефоне с шириной экрана 320*/
+.main_content-form{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    margin:30px 10px 10px;
+    padding: 10px;
+    height:550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 280px;
+}
+/*Стили для инпутов в форме обратной связи*/
+.main_content-form input,textarea{
+    border-radius: 5px;
+    width: 97%;
+    font-size: 20px;
+}
+/*размеры для кнопки submit*/
+#submit{
+    height: 50px;
+    width: 200px;
+}
+/*выравнивает заголовки по центру в карточках и форме*/
+.main_content-form h2{
+    text-align: center;
+}
