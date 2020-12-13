@@ -70,9 +70,48 @@ h2{
     padding: 15px 7px 30px;
     background: linear-gradient(to left, #f1f1f1, #f9f7eb, #f1f1f1);
 }
+/*высота блока с информацией, что бы не вылазила картинка, которую обтекает текст*/
+.information_section-text{
+    min-height: 200px;
+}
+/*стили картинки которую обтекает текст*/
+.information_section-image{
+    max-height: 200px;
+    padding: 0 10px 0 10px;
+}
+/*обтекание левое*/
+.image-float-left{
+    float: left;
+}
+/*обтекание правое*/
+.image-float-right{
+    float: right;
+}
+/*заполнение блока с текстом justify*/
+.information_section-text{
+   text-align: justify;
+}
+
 /*растягивает блоки с картинками и описанием к ним на 85% ширины, на экранах с шириной меньше 643*/
 @media (max-width: 643px) {
     .main_content-box-card{
         min-width: 85%;
+    }
+    /*выравнивает картинку по центру на маленьких экранах*/
+    .information_section-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    /*Убирает обтекание текста на маленьких экранах*/
+    .information_section-image{
+        float: none;
+        max-height: 300px;
+        margin: 10px;
+    }
+    /*выравнивает текст заголовков по центру на маленьких экранах*/
+    h3{
+        text-align: center;
     }
 }
