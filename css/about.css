@@ -12,6 +12,7 @@
 }
 /*Стили блока с карточками контактов*/
 .vcard{
+    transition: 1s;
     box-shadow: 2px 1px 27px 0 rgba(174, 174, 174, 0.39) inset;
     border-radius: 5px;
     margin:10px;
@@ -32,6 +33,10 @@
     height: 200px;
     border-radius: 50%;
     border: 2px solid white;
+    transition: 0.5s;
+}
+.vcard img:hover{
+    border-radius: 5%;
 }
 .email a{
     text-decoration: none;
@@ -66,6 +71,14 @@
 #submit{
     height: 50px;
     width: 200px;
+    background-color: #ababab;
+    transition: 0.3s;
+}
+/*При наведении курсора на кнопку Отправить, она меняет цвет*/
+#submit:hover{
+    cursor: pointer;
+    background-color: #004171;
+    color: #f8f5f3;
 }
 /*выравнивает заголовки по центру в карточках и форме*/
 .main_content-form h2{

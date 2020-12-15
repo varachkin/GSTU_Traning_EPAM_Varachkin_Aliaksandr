@@ -115,3 +115,11 @@ h2{
         text-align: center;
     }
 }
+/*Размер картинок float уменьшается, на экранах меньше width: 450px*/
+@media (max-width: 450px) {
+    .information_section-image{
+        float: none;
+        max-height: 200px;
+        margin: 10px;
+    }
+}
