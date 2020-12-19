@@ -3,7 +3,7 @@ table{
     width: 100%;
     border-collapse: collapse;
     border: 1px solid black;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 /*форма на всю ширину страницы*/
 form{

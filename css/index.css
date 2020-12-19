@@ -10,6 +10,86 @@ h2{
     justify-content: center;
     align-items: center;
 }
+/*стили грид контейнера*/
+.main_content-grid{
+    display: grid;
+    justify-content: center;
+    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: auto;
+    grid-auto-flow: dense;
+}
+/*cтили элементов грид контейнера*/
+.grid-element{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #eaeaea;
+    min-width: 200px;
+    min-height: 200px;
+    transition: 0.5s;
+    opacity: 0.5;
+    border: 1px solid rgba(28, 28, 28, 0.1);
+}
+/*стили блока с картинкой в грд элементе*/
+.grid-element-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 120px;
+}
+/*Максимальные Размеры картинки*/
+.grid-element img{
+    max-width: 180px;
+    max-height: 120px;
+}
+/*Блок с кнопкой. Стили*/
+.grid-element-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    background-color: #a5a5a5;
+    border-radius: 3px;
+    border-bottom: 2px solid #a5a5a5;
+    transition: 0.5s;
+}
+/*Изменение стилей блока с кнопкой при наведении курсора*/
+.grid-element-button:hover{
+    background-color: #c5c5c5;
+}
+/*Стили ссылки кнопки регистрации*/
+.grid-element-button a{
+    text-decoration: none;
+    padding: 5px 25px;
+    color: #ffffff;
+    transition: 0.5s;
+}
+/*Изменение стиля ссылки кнопки регистрации при наведении курсора*/
+.grid-element-button a:hover{
+    color: #004888;
+}
+/*добавляет тень грид элементу и opacity = 1 при наведении курсора*/
+.grid-element:hover{
+    background-color: #eaeaea;
+    box-shadow: -1px 1px 15px -5px rgb(140, 117, 85);
+    transition: 0.5s;
+    opacity: 1;
+    cursor: pointer;
+}
+/*Выравнивание по вертикали блока с датой*/
+.grid-element-date{
+    display: flex;
+    align-items: center;
+}
+/*Маржин блока с датой, что бы не прилипал и размер шрифта*/
+.grid-element-date h2{
+    margin-right: 20px;
+    font-size: 30px;
+}
 /*Стили блока с картинкой, position relative для того, что бы позиционировать элемент, внутри этого блока*/
 .main_content-box-card{
     width: 40%;
@@ -113,6 +193,12 @@ h2{
     /*выравнивает текст заголовков по центру на маленьких экранах*/
     h3{
         text-align: center;
+    }
+}
+/*при достижении ширины экрана меньше 547px колонки grid контейнера 300px - 400px*/
+@media (max-width: 547px) {
+    .main_content-grid{
+        grid-template-columns: minmax(300px, 400px);
     }
 }
 /*Размер картинок float уменьшается, на экранах меньше width: 450px*/
