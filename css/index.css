@@ -1,8 +1,8 @@
-/*выравнивает заголовки по центру*/
+/*aligns headings to the center*/
 h2{
     text-align: center;
 }
-/*Стили блока с картинками, wrap для переноса блоков при адаптиве*/
+/*Block styles with pictures, wrap for wrapping blocks when responsive*/
 .main_content-box{
     width: 100%;
     display: flex;
@@ -10,7 +10,7 @@ h2{
     justify-content: center;
     align-items: center;
 }
-/*стили грид контейнера*/
+/*grid container styles*/
 .main_content-grid{
     display: grid;
     justify-content: center;
@@ -20,7 +20,7 @@ h2{
     grid-auto-flow: dense;
     padding: 10px 0;
 }
-/*cтили элементов грид контейнера*/
+/*styles of elements of a grid container*/
 .grid-element{
     display: flex;
     justify-content: center;
@@ -34,7 +34,7 @@ h2{
     opacity: 0.5;
     border: 1px solid rgba(28, 28, 28, 0.1);
 }
-/*стили блока с картинкой в грд элементе*/
+/*block styles with a picture in a grid element*/
 .grid-element-image{
     display: flex;
     justify-content: center;
@@ -42,12 +42,12 @@ h2{
     width: 180px;
     height: 120px;
 }
-/*Максимальные Размеры картинки*/
+/*Maximum Picture Size*/
 .grid-element img{
     max-width: 180px;
     max-height: 120px;
 }
-/*Блок с кнопкой. Стили*/
+/*Block with a button. Styles*/
 .grid-element-button{
     display: flex;
     justify-content: center;
@@ -58,22 +58,22 @@ h2{
     border-bottom: 2px solid #a5a5a5;
     transition: 0.5s;
 }
-/*Изменение стилей блока с кнопкой при наведении курсора*/
+/*Change block styles with button on hover*/
 .grid-element-button:hover{
     background-color: #c5c5c5;
 }
-/*Стили ссылки кнопки регистрации*/
+/*Register button link styles*/
 .grid-element-button a{
     text-decoration: none;
     padding: 5px 25px;
     color: #ffffff;
     transition: 0.5s;
 }
-/*Изменение стиля ссылки кнопки регистрации при наведении курсора*/
+/*Change the link style of the registration button on hover*/
 .grid-element-button a:hover{
     color: #004888;
 }
-/*добавляет тень грид элементу и opacity = 1 при наведении курсора*/
+/*adds a shadow to the grid element and opacity = 1 on hover*/
 .grid-element:hover{
     background-color: #eaeaea;
     box-shadow: -1px 1px 15px -5px rgb(140, 117, 85);
@@ -81,17 +81,17 @@ h2{
     opacity: 1;
     cursor: pointer;
 }
-/*Выравнивание по вертикали блока с датой*/
+/*Vertical alignment of a block with a date*/
 .grid-element-date{
     display: flex;
     align-items: center;
 }
-/*Маржин блока с датой, что бы не прилипал и размер шрифта*/
+/*Margin of the block with the date, so that the font size does not stick*/
 .grid-element-date h2{
     margin-right: 20px;
     font-size: 30px;
 }
-/*Стили блока с картинкой, position relative для того, что бы позиционировать элемент, внутри этого блока*/
+/*Image block styles, position relative for positioning the element within this block*/
 .main_content-box-card{
     width: 40%;
     margin: 5px;
@@ -104,8 +104,8 @@ h2{
     background-color: #f8f5f3;
     position: relative;
 }
-/*ограничение блока с картинкой по высоте, что бы высота была жеской, а у блоков с текстом, */
-/*под высоту контента и описание стилей бэкграунд имэйдж*/
+/*restriction of a block with a picture in height, so that the height is rigid, and for blocks with text,
+under the height of the content and the description of the styles background image*/
 .card-picture{
     height: 350px;
     background-position: center center;
@@ -124,7 +124,7 @@ h2{
 .picture_4{
     background-image: url(../img/4.jpg);
 }
-/*Стили надписи в картинке, которая появляется, при наведении + ее позиционирование*/
+/*Styles of the caption in the picture that appears on hover + its positioning*/
 .card-picture-overlay{
     position: absolute;
     bottom: 10px;
@@ -141,68 +141,68 @@ h2{
     border-radius: 5px;
     z-index: 1;
 }
-/*Появление надписи при наведении. Сделано через прозрачность*/
+/*The label appears on hover. Made through transparency*/
 .card-picture:hover div{
     opacity: 0.7;
     cursor: pointer;
 }
-/*Стиль блока с информацией*/
+/*Information block style*/
 .information_section{
     padding: 15px 7px 30px;
     background: linear-gradient(to left, #f1f1f1, #f9f7eb, #f1f1f1);
 }
-/*высота блока с информацией, что бы не вылазила картинка, которую обтекает текст*/
+/*height of the block with information, so that the picture does not climb out, which flows around the text*/
 .information_section-text{
     min-height: 200px;
 }
-/*стили картинки которую обтекает текст*/
+/*styles of the image that wraps around the text*/
 .information_section-image{
     max-height: 200px;
     padding: 0 10px 0 10px;
 }
-/*обтекание левое*/
+/*left flow*/
 .image-float-left{
     float: left;
 }
-/*обтекание правое*/
+/*right flow*/
 .image-float-right{
     float: right;
 }
-/*заполнение блока с текстом justify*/
+/*filling a block with justify text*/
 .information_section-text{
    text-align: justify;
 }
 
-/*растягивает блоки с картинками и описанием к ним на 85% ширины, на экранах с шириной меньше 643*/
+/*stretches blocks with pictures and descriptions to them by 85% of the width, on screens with a width less than 643*/
 @media (max-width: 643px) {
     .main_content-box-card{
         min-width: 85%;
     }
-    /*выравнивает картинку по центру на маленьких экранах*/
+    /*aligns the picture to the center on small screens*/
     .information_section-text{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    /*Убирает обтекание текста на маленьких экранах*/
+    /*Removes text wrapping on small screens*/
     .information_section-image{
         float: none;
         max-height: 300px;
         margin: 10px;
     }
-    /*выравнивает текст заголовков по центру на маленьких экранах*/
+    /*aligns the title to the center on small screens*/
     h3{
         text-align: center;
     }
 }
-/*при достижении ширины экрана меньше 547px колонки grid контейнера 300px - 400px*/
+/*when the screen width is less than 547px, the grid column of the container 300px - 400px*/
 @media (max-width: 547px) {
     .main_content-grid{
         grid-template-columns: minmax(300px, 400px);
     }
 }
-/*Размер картинок float уменьшается, на экранах меньше width: 450px*/
+/*The size of the float pictures is reduced, on screens smaller than width: 450px*/
 @media (max-width: 450px) {
     .information_section-image{
         float: none;

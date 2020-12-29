@@ -1,23 +1,23 @@
-/*Задает стили таблице по дефолту*/
+/*Sets the styles for the table by default*/
 table{
     width: 100%;
     border-collapse: collapse;
     border: 1px solid black;
     margin: 20px 0;
 }
-/*форма на всю ширину страницы*/
+/*full page form*/
 form{
     width: 100%;
 }
-/*отступ для текста, что бы не прилипал к инпутам*/
+/*indent for text, so that it doesn't stick to inputs*/
 .span_choose_style{
     margin-right: 20px;
 }
-/*При наведении на инпут и лэйбл, курсор поинтер*/
+/*When hovering over input and label, cursor point*/
 input:hover, label:hover{
     cursor: pointer;
 }
-/*Стили ячейкам */
+/*Cell styles */
 th{
     border: 1px solid black;
     font-size: 20px;
@@ -31,16 +31,16 @@ td{
 tr{
     height: 27px;
 }
-/*при наведении курсора на строку, подсвечивается вся строка*/
+/*when you hover over a line, the entire line is highlighted*/
 .tr:hover{
     box-shadow: 0 0 8px 0 rgb(50, 139, 252) inset;
     cursor: pointer;
 }
-/*Выравнивание по центру*/
+/*align center*/
 .main_content{
     align-items: center;
 }
-/*Минимальная ширина столбцов таблицы, нужно для адаптива*/
+/*Minimum width of table columns required for adaptive*/
 .td_1{
     min-width: 40px;
 }
@@ -53,7 +53,7 @@ tr{
 .td_6{
     min-width: 70px;
 }
-/*Стили при чекнутом чекбоксе или включенной радиобаттон*/
+/*Styles when the checkbox is checked or the radio button is on*/
 #input_style_1:checked ~ table .tr:nth-child(even){
     background-color: rgba(255, 213, 0, 0.1);
 }
@@ -89,7 +89,7 @@ tr{
 #input_style_4:checked ~ table .th{
     border: 1px solid #ffa400;
 }
-/*при достижении размера экрана по ширине 630 пропадают колонки из таблицы со второстепенной информацией*/
+/*when the screen size is 630 wide, columns from the table with secondary information disappear*/
 @media (max-width: 630px) {
     .td_4{
         display: none;

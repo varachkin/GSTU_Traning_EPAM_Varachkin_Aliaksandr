@@ -1,16 +1,16 @@
-/*флекс контейнер, длявыравнивания карточек контактов, wrap для переноса карточки, */
-/*когда не помещается на экране*/
+/* flex container, for aligning contact cards, wrap for card transfer,
+when it does not fit on the screen */
 .flex-box{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
-/*прижимает инпуты к левому краю и задает им одинаковую ширину*/
+/*presses the inputs to the left and gives them the same width*/
 .titles{
     width: 250px;
     float: left;
 }
-/*Стили блока с карточками контактов*/
+/*Contact card block styles*/
 .vcard{
     transition: 0.4s;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -27,7 +27,7 @@
 .vcard:hover{
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
-/*Стили картинок в карточках с контактами*/
+/*Styles of pictures in cards with contacts*/
 .vcard img{
     width: 200px;
     height: 200px;
@@ -47,8 +47,8 @@
     cursor: pointer;
     color: #ffa400;
 }
-/*Стили блока, где расположена форма обратной связи. ширина указана, что бы*/
-/*корректно отображалось на телефоне с шириной экрана 320*/
+/*Styles of the block where the feedback form is located. width is specified so that
+displayed correctly on a phone with a screen width of 320*/
 .main_content-form{
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     border-radius: 5px;
@@ -59,7 +59,7 @@
     align-items: center;
     min-width: 280px;
 }
-/*Стили для инпутов в форме обратной связи*/
+/*Styles for inputs in the feedback form*/
 .main_content-form input,textarea{
     border-radius: 3px;
     border: 1px solid rgba(0,0,0,0.3);
@@ -69,7 +69,7 @@
 .main_content-form input:focus,textarea:focus{
     outline: 1px solid #ffa400;
 }
-/*размеры для кнопки submit*/
+/*dimensions for the submit button*/
 #submit{
     margin: 10px;
     background-color: #a5a5a5;
@@ -79,14 +79,14 @@
     border: 2px solid #a5a5a5;
     padding: 5px 10px;
 }
-/*При наведении курсора на кнопку Отправить, она меняет цвет*/
+/*When you hover over the Submit button, it changes color*/
 #submit:hover{
     cursor: pointer;
     background-color: #c5c5c5;
     color: #004888;
     border-bottom: 2px solid #a5a5a5;
 }
-/*выравнивает заголовки по центру в карточках и форме*/
+/*aligns headings in cards and form*/
 .main_content-form h2{
     text-align: center;
 }

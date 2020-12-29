@@ -1,4 +1,4 @@
-/*Указал загруженный шрифт*/
+/*Specified the loaded font*/
 @font-face {
     font-family: Roboto;
     src: url(../fonts/Roboto-Medium.ttf);
@@ -11,35 +11,35 @@
     font-family: Oswald;
     src: url(../fonts/Oswald-VariableFont_wght.ttf);
 }
-/*Шрифт для боди и убрал отступ по умолчанию*/
+/*Body font and removed default padding*/
 body{
     margin: 0;
     font-family: Roboto, sans-serif;
     background-color: #f1f1f1;
 }
-/*Обёртка, что бы прячущаяся меню справа не скролила страницу*/
+/*A wrapper so that the hidden menu on the right does not scroll the page*/
 .wrapper{
     display: flex;
     min-height: 100%;
     overflow: hidden;
     flex-direction: column;
 }
-/*Контейнер ограничивающий контент 1400 px*/
+/*1400 px bounding content container*/
 .container{
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
 }
-/*Флексовый контейнер, что бы можно было переистользовать в повторяющихся флекс-контейнерах*/
+/*container so that you can reuse it in repeating flex containers*/
 .flex-container{
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
-/*меню справа, при нажатии на бургер*/
-/*Позиционирование для вырывания из контекста absolute,*/
-/*Смещено вправо, что бы по дефолту не было видно.*/
+/*menu on the right when clicking on the burger
+Positioning for taking out of context absolute,
+Shifted to the right, so that it would not be visible by default.*/
 .open-menu{
     position: absolute;
     z-index: 1;
@@ -54,12 +54,12 @@ body{
     justify-content: center;
     transition: 1s;
 }
-/*Чекбокс, для определения состояния, при открытии open-menu или закрытии*/
+/*Checkbox for determining the state when opening an open-menu or closing*/
 .input-burger-menu{
     display: none;
 }
-/*Иконка бургера, позиционирование + дисплей нан в дефолтном состоянии*/
-/*Будет появляться посредством медиазапроса*/
+/*Burger icon, positioning + nan display in default state
+Will appear via media query*/
 #burger-menu span{
     position: absolute;
     z-index: 2;
@@ -70,8 +70,8 @@ body{
     padding: 5px 10px;
     display: none;
 }
-/*Иконка закрытия open-menu, позиционирование, дисплей нан по дефолту, */
-/*появляется при открытии open-menu*/
+/*Open-menu close icon, positioning, display nan by default,
+appears when opening open-menu*/
 #burger-menu-close span{
     color: white;
     font-size: 40px;
@@ -82,34 +82,34 @@ body{
     display: none;
     z-index: 2;
 }
-/*Убрал стили списка*/
+/*Removed list styles*/
 .link-list{
     list-style: none;
 }
 .link-list li{
     padding: 40px 40px 40px 0;
 }
-/*Стили ссылок списка*/
+/*Link list style*/
 .link-list li a{
     text-decoration: none;
     color: white;
     font-size: 26px;
 }
-/*При нажатии на бургер(чекнутый чекбокс) бургер пропадает*/
+/*When you click on a burger (checked checkbox), the burger disappears*/
 .input-burger-menu:checked + #burger-menu{
     display: none;
 }
-/*При нажатии на бургер(чекнутый чекбокс) блок open-menu меняет позицию и становиться видимым*/
+/*When you click on a burger (checked checkbox), the open-menu block changes position and becomes visible*/
 .input-burger-menu:checked ~ .open-menu{
     position: absolute;
     right: 0;
     transition: 0.5s;
 }
-/*При нажатии на бургер(чекнутый чекбокс) бургер пропадает, появляется крестик*/
+/*When you click on a burger (checked checkbox), the burger disappears, a cross appears*/
 .input-burger-menu:checked ~ #burger-menu-close span{
     display: block;
 }
-/*Стили шапки*/
+/*header styles*/
 .header{
     height: 100px;
     width: 100%;
@@ -119,7 +119,7 @@ body{
     position: fixed;
     z-index: 2;
 }
-/*стили контейнера с ссылками шапки*/
+/*container styles with header links*/
 .header_link{
     display: flex;
     align-items: center;
@@ -130,7 +130,7 @@ body{
     width: 300px;
     height: 60px;
 }
-/*стили ссылок шапки*/
+/*header link styles*/
 .header_link a{
     padding: 5px 15px;
     margin-left: 30px;
@@ -140,18 +140,18 @@ body{
     transition: 0.3s;
     border-radius: 42%;
 }
-/*стили ссылок шапки при наведении мыши*/
+/*header link styles on mouseover*/
 .header_link a:hover{
     color: #fedfc5;
     box-shadow:1px 1px 1px 3px rgba(148,154,255,0.12);
     border-radius: 3%;
 }
-/*Контент страницы с минимальной высотой, что бы если контента мало, футер был внизу страницы*/
+/*Page content with a minimum height, so that if there is little content, the footer is at the bottom of the page*/
 .main{
     margin-top: 100px;
     padding: 0 15px;
 }
-/*Меню слева. Позиционирование нужно для того, что бы при скроле не перекрывало шапку*/
+/*Menu on the left. Positioning is needed so that it does not overlap the header when scrolling*/
 .menu{
     width: 150px;
     margin-right: 10px;
@@ -161,7 +161,7 @@ body{
     bottom: 0;
     z-index: 1;
 }
-/*Стили пунктов меню*/
+/*Menu item styles*/
 .menu ul li{
     font-size: 18px;
     font-weight: 700;
@@ -179,7 +179,7 @@ body{
     margin-left: 10px;
     color: #005493;
 }
-/*Ограничение контента 1400px */
+/*Content limit 1400px */
 .main_block{
     display: flex;
     max-width: 1400px;
@@ -199,14 +199,14 @@ h2{
     list-style: none;
     padding: 0 5px 0 5px;
 }
-/*Стили подвала*/
+/*footer styles*/
 .footer{
     border-top: 1px solid #7f7f7f;
     height: 50px;
     width: 100%;
     background: linear-gradient(#fffbf5, #d3d1bb);
 }
-/*Стили контента подвала*/
+/*footer content styles*/
 .footer_content{
     display: flex;
     align-items: center;
@@ -222,7 +222,8 @@ h2{
 .footer_content div div a:hover{
     color: #ff001d;
 }
-/*Медиазапрос, при достижении ширины экрана девайса 960 появлялся бургер и исчезали ссылки шапки*/
+/*Media query, when the screen width of the device reached 960,
+a burger appeared and the header links disappeared*/
 @media (max-width: 960px) {
     #burger-menu span{
         display: block;
