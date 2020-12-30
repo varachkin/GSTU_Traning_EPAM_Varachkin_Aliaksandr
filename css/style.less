@@ -1,47 +1,46 @@
+@import "vars";
+
 /*Specified the loaded font*/
 @font-face {
   font-family: Roboto;
-  src: url("../fonts/Roboto-Medium.ttf");
+  src: url("@{font}Roboto-Medium.ttf");
 }
 @font-face {
   font-family: Texturina;
-  src: url("../fonts/Texturina.ttf");
+  src: url("@{font}Texturina.ttf");
 }
 @font-face {
   font-family: Oswald;
-  src: url("../fonts/Oswald-VariableFont_wght.ttf");
+  src: url("@{font}Oswald-VariableFont_wght.ttf");
 }
 /*Body font and removed default padding*/
-body {
+body{
   margin: 0;
   font-family: Roboto, sans-serif;
-  background-color: #f1f1f1;
+  background-color: @background;
 }
 /*A wrapper so that the hidden menu on the right does not scroll the page*/
-.wrapper {
+.wrapper{
   display: flex;
   min-height: 100%;
   overflow: hidden;
   flex-direction: column;
 }
 /*1400 px bounding content container*/
-.container {
+.container{
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
 }
 /*container so that you can reuse it in repeating flex containers*/
-.flex-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
+.flex-container{
+  .flex-mixin(@flex, center, space-between, row);
   width: 100%;
 }
 /*menu on the right when clicking on the burger
 Positioning for taking out of context absolute,
 Shifted to the right, so that it would not be visible by default.*/
-.open-menu {
+.open-menu{
   position: absolute;
   z-index: 1;
   right: -60vw;
@@ -49,46 +48,45 @@ Shifted to the right, so that it would not be visible by default.*/
   bottom: 0;
   width: 60vw;
   height: 100vh;
-  background-color: rgba(24, 24, 24, 0.9);
-  display: flex;
-  justify-content: center;
+  background-color:@background_header;
+  .flex-mixin();
   align-items: center;
   transition: 1s;
 }
 /*Checkbox for determining the state when opening an open-menu or closing*/
-.input-burger-menu {
+.input-burger-menu{
   display: none;
   /*When you click on a burger (checked checkbox), the burger disappears*/
+  &:checked + #burger-menu{
+    display: none;
+  }
   /*When you click on a burger (checked checkbox), the open-menu block changes position and becomes visible*/
+  &:checked ~ .open-menu{
+    position: absolute;
+    right: 0;
+    transition: 0.5s;
+  }
   /*When you click on a burger (checked checkbox), the burger disappears, a cross appears*/
-}
-.input-burger-menu:checked + #burger-menu {
-  display: none;
-}
-.input-burger-menu:checked ~ .open-menu {
-  position: absolute;
-  right: 0;
-  transition: 0.5s;
-}
-.input-burger-menu:checked ~ #burger-menu-close span {
-  display: block;
+  &:checked ~ #burger-menu-close span{
+    display: block;
+  }
 }
 /*Burger icon, positioning + nan display in default state
 Will appear via media query*/
-#burger-menu span {
+#burger-menu span{
   position: absolute;
   z-index: 2;
   top: 20px;
   right: 20px;
-  color: #ffffff;
+  color: @white;
   font-size: 40px;
   padding: 5px 10px;
   display: none;
 }
 /*Open-menu close icon, positioning, display nan by default,
 appears when opening open-menu*/
-#burger-menu-close span {
-  color: #ffffff;
+#burger-menu-close span{
+  color: @white;
   font-size: 40px;
   padding: 5px 10px;
   position: absolute;
@@ -98,152 +96,149 @@ appears when opening open-menu*/
   z-index: 2;
 }
 /*Removed list styles*/
-.link-list {
+.link-list{
   list-style: none;
+  & li{
+    padding: 40px 40px 40px 0;
+    /*Link list style*/
+    & a{
+      text-decoration: none;
+      color: @white;
+      font-size: 26px;
+    }
+  }
 }
-.link-list li {
-  padding: 40px 40px 40px 0;
-  /*Link list style*/
-}
-.link-list li a {
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 26px;
-}
+
 /*header styles*/
-.header {
+.header{
   height: 100px;
   width: 100%;
-  background-color: rgba(24, 24, 24, 0.9);
+  background-color: @background_header;
   display: flex;
   align-items: center;
   position: fixed;
   z-index: 2;
 }
 /*container styles with header links*/
-.header_link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.header_link{
+  .flex-mixin();
   /*header link styles*/
+  & a{
+    padding: 5px 15px;
+    margin-left: 30px;
+    color: @background;
+    text-decoration: none;
+    font-size: 26px;
+    transition: 0.3s;
+    border-radius: 42%;
+    /*header link styles on mouseover*/
+    &:hover{
+      color: #fedfc5;
+      box-shadow:@shadow;
+      border-radius: 3%;
+    }
+  }
 }
-.header_link a {
-  padding: 5px 15px;
-  margin-left: 30px;
-  color: #f1f1f1;
-  text-decoration: none;
-  font-size: 26px;
-  transition: 0.3s;
-  border-radius: 42%;
-  /*header link styles on mouseover*/
-}
-.header_link a:hover {
-  color: #fedfc5;
-  box-shadow: -1px 1px 15px -5px #8c7555;
-  border-radius: 3%;
-}
-.logo_image {
+.logo_image{
   display: inline-block;
   width: 300px;
   height: 60px;
 }
+
+
 /*Page content with a minimum height, so that if there is little content, the footer is at the bottom of the page*/
-.main {
+.main{
   margin-top: 100px;
   padding: 0 15px;
 }
 /*Menu on the left. Positioning is needed so that it does not overlap the header when scrolling*/
-.menu {
+.menu{
   width: 150px;
   margin-right: 10px;
-  background-color: #f1f1f1;
+  background-color: @background;
   position: relative;
   top: 0;
   bottom: 0;
   z-index: 1;
   /*Menu item styles*/
+  & ul li{
+    font-size: 18px;
+    font-weight: 700;
+    margin: 20px 0;
+    border-top: 1px solid rgba(24,24,24, 0.2);
+    border-bottom: 1px solid rgba(24,24,24, 0.2);
+    width: 110px;
+    & a{
+      text-decoration: none;
+      color: #181818;
+      transition: 0.4s;
+      &:hover{
+        margin-left: 10px;
+        color: #005493;
+      }
+    }
+  }
 }
-.menu ul li {
-  font-size: 18px;
-  font-weight: 700;
-  margin: 20px 0;
-  border-top: 1px solid rgba(24, 24, 24, 0.2);
-  border-bottom: 1px solid rgba(24, 24, 24, 0.2);
-  width: 110px;
-}
-.menu ul li a {
-  text-decoration: none;
-  color: #181818;
-  transition: 0.4s;
-}
-.menu ul li a:hover {
-  margin-left: 10px;
-  color: #005493;
-}
+
 /*Content limit 1400px */
-.main_block {
+.main_block{
   display: flex;
   max-width: 1400px;
   margin: 0 auto;
 }
-.main_content {
-  background: linear-gradient(to left, #f1f1f1, #f9f7eb, #f1f1f1);
+.main_content{
+  background: @gradient;
   width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: stretch;
-  flex-direction: column;
+  .flex-mixin(@flex, stretch, space-around, column);
 }
-h2 {
+h2{
   text-align: center;
 }
-.main_menu {
+.main_menu{
   list-style: none;
   padding: 0 5px 0 5px;
 }
 /*footer styles*/
-.footer {
+.footer{
   border-top: 1px solid #7f7f7f;
   height: 50px;
   width: 100%;
-  background: linear-gradient(#fffbf5, #d3d1bb);
+  background:@gradient_2;
 }
 /*footer content styles*/
-.footer_content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
+.footer_content{
+  .flex-mixin(@flex, center, space-between, row);
   width: 100%;
   font-size: 12px;
+  & div div a{
+    text-decoration: none;
+    color: #870313;
+    transition: 0.2s;
+    &:hover{
+      color: #ff001d;
+    }
+  }
 }
-.footer_content div div a {
-  text-decoration: none;
-  color: #870313;
-  transition: 0.2s;
-}
-.footer_content div div a:hover {
-  color: #ff001d;
-}
+
 /*Media query, when the screen width of the device reached 960,
 a burger appeared and the header links disappeared*/
-@media (max-width: 960px) {
-  #burger-menu span {
+@media (@media960) {
+  #burger-menu span{
     display: block;
   }
-  .header_link > a {
+  .header_link > a{
     display: none;
   }
-  .logo_image {
+  .logo_image{
     width: 200px;
     height: 40px;
   }
-  .menu {
+  .menu{
     display: none;
   }
 }
-@media (max-width: 460px) {
-  .link-list li a {
+@media (@media460) {
+  .link-list li a{
     font-size: 16px;
   }
 }

@@ -1,106 +1,107 @@
+@import "vars";
 /*Sets the styles for the table by default*/
-table {
+table{
   width: 100%;
   border-collapse: collapse;
   border: 1px solid black;
   margin: 20px 0;
 }
 /*full page form*/
-form {
+form{
   width: 100%;
 }
 /*indent for text, so that it doesn't stick to inputs*/
-.span_choose_style {
+.span_choose_style{
   margin-right: 20px;
 }
 /*When hovering over input and label, cursor point*/
-input:hover,
-label:hover {
+input:hover, label:hover{
   cursor: pointer;
 }
 /*Cell styles */
-th {
+th{
   border: 1px solid black;
   font-size: 20px;
   background-color: rgba(127, 127, 127, 0.6);
   height: 30px;
 }
-td {
+td{
   text-align: center;
   border: 1px solid black;
 }
-tr {
+tr{
   height: 27px;
 }
 /*when you hover over a line, the entire line is highlighted*/
-.tr:hover {
-  box-shadow: 0 0 8px 0 #328bfc inset;
+.tr:hover{
+  box-shadow: 0 0 8px 0 rgb(50, 139, 252) inset;
   cursor: pointer;
 }
+
 /*Minimum width of table columns required for adaptive*/
-.td_1 {
+.td_1{
   min-width: 40px;
 }
-.td_4 {
+.td_4{
   width: 130px;
 }
-.td_5 {
+.td_5{
   min-width: 50px;
 }
-.td_6 {
+.td_6{
   min-width: 70px;
 }
 /*Styles when the checkbox is checked or the radio button is on*/
-#input_style_1:checked ~ table .tr:nth-child(even) {
+#input_style_1:checked ~ table .tr:nth-child(even){
   background-color: rgba(255, 213, 0, 0.1);
 }
-#input_style_2:checked ~ table .tr {
+#input_style_2:checked ~ table .tr{
   font-family: Texturina, sans-serif;
   font-weight: 600;
   font-size: 16px;
   background-color: #83a45d;
 }
-#input_style_3:checked ~ table .tr {
+#input_style_3:checked ~ table .tr{
   font-family: Oswald, sans-serif;
   font-weight: 300;
   letter-spacing: 2px;
   background-color: #f0dcc3;
 }
-#input_style_4:checked ~ .table {
+#input_style_4:checked ~ .table{
   background-color: #2f2f2f;
   color: white;
 }
-#input_style_4:checked ~ table .tr td {
+#input_style_4:checked ~ table .tr td{
   border: 0;
   font-weight: 200;
 }
-#input_style_4:checked ~ table .th th {
+#input_style_4:checked ~ table .th th{
   border: 0;
   font-weight: 200;
   color: #0d64a3;
   background-color: #2f2f2f;
 }
-#input_style_4:checked ~ table .tr {
+#input_style_4:checked ~ table .tr{
   border: 1px solid #ffa400;
 }
-#input_style_4:checked ~ table .th {
+#input_style_4:checked ~ table .th{
   border: 1px solid #ffa400;
 }
 /*when the screen size is 630 wide, columns from the table with secondary information disappear*/
-@media (max-width: 630px) {
-  .td_4 {
+@media (@media630) {
+  .td_4{
     display: none;
   }
-  .td_5 {
+  .td_5{
     display: none;
   }
-  .td_1 {
+  .td_1{
     min-width: 22px;
   }
-  th {
+  th{
     font-size: 16px;
   }
-  td {
+  td{
     font-size: 14px;
   }
 }

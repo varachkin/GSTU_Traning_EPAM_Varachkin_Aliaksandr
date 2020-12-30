@@ -1,0 +1,28 @@
+@white: white;
+@background: #f1f1f1;
+@background_header: rgba(24,24,24,0.9);
+@gradient: linear-gradient(to left, #f1f1f1, #f9f7eb, #f1f1f1);
+@gradient_2: linear-gradient(#fffbf5, #d3d1bb);
+@font: ~"../fonts/";
+@img: ~"../img/";
+@shadow: -1px 1px 15px -5px rgb(140, 117, 85);
+@btn_color: #a5a5a5;
+@border_btn: 2px solid #a5a5a5;
+@radius_btn:3px;
+@media960: ~"max-width: 960px";
+@media630: ~"max-width: 630px";
+@media547: ~"max-width: 547px";
+@media460: ~"max-width: 460px";
+@media450: ~"max-width: 450px";
+@flex: flex;
+.flex-mixin(){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-mixin(@flex, @align, @justify, @direction){
+  display: @flex;
+  justify-content: @justify;
+  align-items: @align;
+  flex-direction: @direction;
+}

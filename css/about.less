@@ -1,0 +1,99 @@
+@import "vars";
+/* flex container, for aligning contact cards, wrap for card transfer,
+when it does not fit on the screen */
+.flex-box{
+  .flex-mixin();
+  flex-wrap: wrap;
+}
+/*presses the inputs to the left and gives them the same width*/
+.titles{
+  width: 250px;
+  float: left;
+}
+/*Contact card block styles*/
+.vcard{
+  transition: 0.4s;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin:10px;
+  padding: 7px;
+  height:440px;
+  .flex-mixin(@flex, center, center, column);
+  min-width: 280px;
+  width: 30%;
+  &:hover{
+    box-shadow: @shadow;
+  }
+  /*Styles of pictures in cards with contacts*/
+  & img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: 0.5s;
+    &:hover{
+      border-radius: 5%;
+    }
+  }
+}
+
+.email a{
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+  &:hover{
+    cursor: pointer;
+    color: #ffa400;
+  }
+}
+
+/*Styles of the block where the feedback form is located. width is specified so that
+displayed correctly on a phone with a screen width of 320*/
+.main_content-form{
+  box-shadow: @shadow;
+  border-radius: 5px;
+  margin:30px 10px 30px;
+  padding: 10px;
+  .flex-mixin(@flex, center, center, column);
+  min-width: 250px;
+  /*Styles for inputs in the feedback form*/
+  & input,& textarea{
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.3);
+    width: 99%;
+    font-size: 20px;
+    &:focus,&:focus{
+      outline: 1px solid #ffa400;
+    }
+  }
+  /*aligns headings in cards and form*/
+  & h2{
+    text-align: center;
+  }
+}
+
+/*dimensions for the submit button*/
+#submit{
+  margin: 10px;
+  background-color: @btn_color;
+  border-radius: @radius_btn;
+  transition: 0.5s;
+  color: @white;
+  border:@border_btn;
+  padding: 5px 10px;
+  /*When you hover over the Submit button, it changes color*/
+  &:hover{
+    cursor: pointer;
+    background-color: lighten(@btn_color, 10%);
+    color: #004888;
+    border-bottom: @border_btn;
+  }
+}
+@media (max-width: 450px) {
+  .main_content-form input, .main_content-form textarea, .main_content-form label{
+    font-size: 13px;
+  }
+  .main_content-form{
+    height: 430px;
+  }
+}
