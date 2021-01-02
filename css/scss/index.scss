@@ -1,0 +1,211 @@
+@import "var";
+/*aligns headings to the center*/
+h2{
+  text-align: center;
+}
+/*Block styles with pictures, wrap for wrapping blocks when responsive*/
+.main_content-box{
+  width: 100%;
+  @include flex-mix();
+  flex-wrap: wrap;
+}
+/*grid container styles*/
+.main_content-grid{
+  display: grid;
+  justify-content: center;
+  grid-gap: gap($padding);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: auto;
+  grid-auto-flow: dense;
+  padding: $padding;
+
+}
+/*styles of elements of a grid container*/
+.grid-element{
+  $i:15;
+  @while $i > 0{
+    &_#{$i}{
+      background-color: #eaeaea;
+      $i: $i - 1;
+    }
+  }
+  @include flex-mixin($flex, center, center, column);
+  padding: 10px;
+  min-width: 200px;
+  min-height: 200px;
+  transition: 0.5s;
+  opacity: 0.5;
+  border: 1px solid rgba(28, 28, 28, 0.1);
+  /*adds a shadow to the grid element and opacity = 1 on hover*/
+  &:hover{
+    background-color: #eaeaea;
+    box-shadow: $shadow;
+    transition: 0.5s;
+    opacity: 1;
+    cursor: pointer;
+  }
+  /*Maximum Picture Size*/
+  & img{
+    max-width: 180px;
+    max-height: 120px;
+  }
+}
+/*block styles with a picture in a grid element*/
+.grid-element-image{
+  @include flex-mix();
+  width: 180px;
+  height: 120px;
+}
+
+/*Block with a button. Styles*/
+.grid-element-button{
+  @include flex-mix();
+  margin: 10px;
+  background-color: $btn_color;
+  border-radius: $radius_btn;
+  border-bottom: $border_btn;
+  transition: 0.5s;
+  /*Change block styles with button on hover*/
+  &:hover,&:focus{
+    background-color: lighten($btn_color, 10%);
+  }
+  /*Register button link styles*/
+  & a{
+    text-decoration: none;
+    padding: 5px 25px;
+    color: $white;
+    transition: 0.5s;
+    /*Change the link style of the registration button on hover*/
+    &:hover{
+      color: #004888;
+    }
+  }
+}
+
+/*Vertical alignment of a block with a date*/
+.grid-element-date{
+  @include flex-mix();
+  /*Margin of the block with the date, so that the font size does not stick*/
+  & h2{
+    margin-right: 20px;
+    font-size: 30px;
+  }
+}
+
+/*Image block styles, position relative for positioning the element within this block*/
+.main_content-box-card{
+  width: 40%;
+  margin: 5px;
+  border: 1px solid #7a7a7a;
+  min-width: 270px;
+  padding: 12px;
+  font-size: 18px;
+  box-shadow: $shadow;
+  border-radius: 5px;
+  background-color: $background;
+  position: relative;
+}
+/*restriction of a block with a picture in height, so that the height is rigid, and for blocks with text,
+under the height of the content and the description of the styles background image*/
+.card-picture{
+  height: 350px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*The label appears on hover. Made through transparency*/
+  &:hover div{
+    opacity: 0.7;
+    cursor: pointer;
+  }
+}
+@each $pic in 1, 2, 3, 4{
+  .picture_#{$pic}{
+    background-image:url("../../img/#{$pic}.jpg");
+  }
+}
+.card-text{
+   &>ol li{
+      @for $i from 1 through 4{
+        &:nth-child(#{$i}){
+          color: nth($list, $i);
+        }
+      }
+    }
+  }
+
+/*Styles of the caption in the picture that appears on hover + its positioning*/
+.card-picture-overlay{
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+/*Information block style*/
+.information_section{
+  padding: 15px 7px 30px;
+  background: $gradient;
+}
+/*height of the block with information, so that the picture does not climb out, which flows around the text*/
+.information_section-text{
+  min-height: 200px;
+  text-align: justify;
+}
+/*styles of the image that wraps around the text*/
+.information_section-image{
+  max-height: 200px;
+  padding: 0 10px 0 10px;
+}
+/*left flow*/
+.image-float-left{
+  float: left;
+}
+/*right flow*/
+.image-float-right{
+  float: right;
+}
+
+/*stretches blocks with pictures and descriptions to them by 85% of the width, on screens with a width less than 643*/
+@media (max-width: 643px) {
+  .main_content-box-card{
+    min-width: 85%;
+  }
+  /*aligns the picture to the center on small screens*/
+  .information_section-text{
+    @include flex-mixin($flex, center, center, column);
+  }
+  /*Removes text wrapping on small screens*/
+  .information_section-image{
+    float: none;
+    max-height: 300px;
+    margin: 10px;
+  }
+  /*aligns the title to the center on small screens*/
+  h3{
+    text-align: center;
+  }
+}
+/*when the screen width is less than 547px, the grid column of the container 300px - 400px*/
+@media (max-width: 547px) {
+  .main_content-grid{
+    grid-template-columns: minmax(300px, 400px);
+  }
+}
+/*The size of the float pictures is reduced, on screens smaller than width: 450px*/
+@media (max-width: 450px) {
+  .information_section-image{
+    float: none;
+    max-height: 200px;
+    margin: 10px;
+  }
+}
