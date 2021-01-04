@@ -6,8 +6,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 60px;
     font-family: Arial, sans-serif;
+    background: linear-gradient(#ffecd2, #ffffff, #f4deff);
+    height: 100vh;
+    margin: 0;
 }
 .container{
     border: 1px solid rgba(1, 1, 1, 0.2);
@@ -17,36 +19,29 @@ body{
     flex-direction: column;
     background-color: rgba(120, 120, 120, 0.3);
 }
-.output_1{
+.output{
+    font-family: Audiowide, sans-serif;
     width: 380px;
-    height: 30px;
     border: 1px solid rgba(1, 1, 1, 0.2);
-    margin: 20px auto 0;
-    border-bottom: 0;
-    background-color: white;
-    font-family: Audiowide, Sans-Serif;
+    background-color: #ffffff;
     font-style: italic;
-    font-size: 22px;
-    color: rgba(1, 1, 1, 0.4);
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding: 0 5px;
 }
+.output_1{
+    height: 30px;
+    margin: 20px auto 0;
+    border-bottom: 0;
+    font-size: 22px;
+    color: rgba(1, 1, 1, 0.4);
+}
 .output_2{
-    width: 380px;
     height: 90px;
-    border: 1px solid rgba(1, 1, 1, 0.2);
     margin: 0 auto 5px;
     border-top: 0;
-    background-color: white;
-    font-family: Audiowide, Sans-Serif;
-    font-style: italic;
     font-size: 50px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0 5px;
 }
 .input{
     width: 380px;
@@ -82,8 +77,7 @@ input{
 input:checked+label{
     color: red;
     border: 1px solid red;
-    box-shadow: 0 0 0 0 rgba(56, 56, 56, 0) inset;
-    font-weight: 800;
+    box-shadow: 0px 0px 18px 3px rgba(0, 0, 0, 0.2) inset;
 }
 .grid_btn{
     display: grid;
