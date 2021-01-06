@@ -1,6 +1,6 @@
 @font-face {
-    font-family: Audiowide;
-    src: url("../fonts/Audiowide-Regular.ttf");
+    font-family: SquadaOne;
+    src: url("../fonts/SquadaOne-Regular.ttf");
 }
 body{
     display: flex;
@@ -21,11 +21,10 @@ body{
     box-shadow: 1px 0 10px 2px rgba(0, 0, 0, 0.6);
 }
 .output{
-    font-family: Audiowide, sans-serif;
+    font-family: SquadaOne, sans-serif;
     width: 380px;
     border: 1px solid rgba(1, 1, 1, 0.2);
     background-color: #ffffff;
-
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -43,7 +42,8 @@ body{
     height: 90px;
     margin: 0 auto 5px;
     border-top: 0;
-    font-size: 50px;
+    font-size: 75px;
+    font-stretch: ultra-condensed;
 }
 .input{
     width: 380px;
@@ -86,7 +86,7 @@ input:checked+label{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 15px;
-    margin: 0 auto;
+    margin: 15px auto;
 }
 .btn{
     width: 80px;
