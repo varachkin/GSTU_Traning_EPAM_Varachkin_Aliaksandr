@@ -43,7 +43,6 @@ body{
     margin: 0 auto 5px;
     border-top: 0;
     font-size: 75px;
-    font-stretch: ultra-condensed;
 }
 .input{
     width: 380px;
@@ -98,6 +97,9 @@ input:checked+label{
     font-size: 28px;
     transition: 0.2s;
     border-radius: 3px;
+}
+.btn:focus{
+    outline: none;
 }
 .btn_function{
     background-color: rgb(104, 128, 187);
