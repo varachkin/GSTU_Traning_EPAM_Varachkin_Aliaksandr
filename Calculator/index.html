@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
     <div class="container">
-        <div class="output output_1">012789</div>
-        <div class="output  output_2">0,1234456789</div>
+        <div class="output output_1" id="out-top"></div>
+        <div class="output output_2" id="out-bottom">0</div>
             <form class="input">
                 <input type="radio" name="int-float" id="float">
                 <label for="float" class="label">FLOAT</label>
@@ -19,32 +19,32 @@
                 <label for="priority" class="label">PRIORITY</label>
             </form>
         <div class="grid_btn">
-            <button class="btn btn_function">M+</button>
-            <button class="btn btn_function">MR</button>
-            <button class="btn btn_function">C</button>
-            <button class="btn btn_function">&larr;</button>
+            <button onclick="memoryWrite()" class="btn btn_function">M+</button>
+            <button onclick="memoryRead()" class="btn btn_function">MR</button>
+            <button onclick="clean(), onButton()" class="btn btn_function">C</button>
+            <button onclick="backspace()" class="btn btn_function">&larr;</button>
 
-            <button class="btn btn_number">7</button>
-            <button class="btn btn_number">8</button>
-            <button class="btn btn_number">9</button>
-            <button class="btn btn_action">&divide;</button>
+            <button class="btn btn_number" onclick="insert('7')">7</button>
+            <button onclick="insert('8')" class="btn btn_number">8</button>
+            <button onclick="insert('9')" class="btn btn_number">9</button>
+            <button onclick="insert('/')" class="btn btn_action">&divide;</button>
 
-            <button class="btn btn_number">4</button>
-            <button class="btn btn_number">5</button>
-            <button class="btn btn_number">6</button>
-            <button class="btn btn_action">&times;</button>
+            <button onclick="insert('4')" class="btn btn_number">4</button>
+            <button onclick="insert('5')" class="btn btn_number">5</button>
+            <button onclick="insert('6')" class="btn btn_number">6</button>
+            <button onclick="insert('*')" class="btn btn_action">&times;</button>
 
-            <button class="btn btn_number">1</button>
-            <button class="btn btn_number">2</button>
-            <button class="btn btn_number">3</button>
-            <button class="btn btn_action">-</button>
+            <button onclick="insert('1')" class="btn btn_number">1</button>
+            <button onclick="insert('2')" class="btn btn_number">2</button>
+            <button onclick="insert('3')" class="btn btn_number">3</button>
+            <button onclick="insert('-')" class="btn btn_action">-</button>
 
-            <button class="btn btn_number">0</button>
-            <button class="btn btn_number">,</button>
+            <button onclick="insert('0')" class="btn btn_number">0</button>
+            <button onclick="insert(',')" class="btn btn_number">,</button>
             <button class="btn btn_action">=</button>
-            <button class="btn btn_action">+</button>
+            <button onclick="insert('+')" class="btn btn_action">+</button>
         </div>
     </div>
 </body>
-<script type="javascript" src="script/script.js"></script>
+<script src="script/script.js"></script>
 </html>
