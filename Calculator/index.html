@@ -21,7 +21,7 @@
         <div class="grid_btn">
             <button onclick="memoryWrite()" class="btn btn_function">M+</button>
             <button onclick="memoryRead()" class="btn btn_function">MR</button>
-            <button onclick="clean(), onButton()" class="btn btn_function">C</button>
+            <button onclick="clean()" class="btn btn_function">C</button>
             <button onclick="backspace()" class="btn btn_function">&larr;</button>
 
             <button class="btn btn_number" onclick="insert('7')">7</button>
@@ -41,7 +41,7 @@
 
             <button onclick="insert('0')" class="btn btn_number">0</button>
             <button onclick="insert(',')" class="btn btn_number">,</button>
-            <button class="btn btn_action">=</button>
+            <button onclick="result()" class="btn btn_action">=</button>
             <button onclick="insert('+')" class="btn btn_action">+</button>
         </div>
     </div>

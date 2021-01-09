@@ -2,11 +2,11 @@ let output = document.getElementById("out-bottom");
 let memory = document.getElementById("out-top");
 let dataMemory;
 function insert(num) {
-    if(output.innerText.length <= 10){
-        if(output.innerText === '0'){
-            output.innerText = num;
+    if(output.innerHTML.length <= 10){
+        if(output.innerHTML === '0'){
+            output.innerHTML = num;
         }else {
-            output.innerText += num;
+            output.innerHTML += num;
         }
     }
     if(num === '/' || num === '*' || num === '+' || num === '-'){
@@ -15,24 +15,35 @@ function insert(num) {
     }
 }
 function clean() {
-    output.innerText = '0';
-    memory.innerText = '';
+    output.innerHTML = '0';
+    memory.innerHTML = '';
 }
 function backspace() {
-    let num = output.innerText;
-    if(num.length < 1){
-        output.innerText = '0';
+    let num = output.innerHTML;
+    if(num.length === 1){
+        output.innerHTML = '0';
     }else {
-        output.innerText = num.substring(0, num.length - 1);
+        output.innerHTML = num.substring(0, num.length - 1);
     }
 }
 function result() {
-
+    if(output.innerHTML){
+        memory.innerHTML += output.innerHTML;
+    }
+    let mem = memory.innerText;
+    let x = eval(mem);
+    output.innerText = x;
+    memory.innerText += "=" + x;
 }
 function memoryWrite() {
-    dataMemory = output.innerText;
+    dataMemory = output.innerHTML;
 
 }
 function memoryRead() {
-    output.innerText = dataMemory;
+    if(dataMemory){
+        output.innerHTML = dataMemory;
+    }else{
+        alert('no stored values');
+    }
+
 }
