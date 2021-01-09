@@ -116,3 +116,25 @@ input:checked+label{
     cursor: pointer;
     font-weight: 700;
 }
+@media (max-width: 500px) {
+    .container{
+        width: 370px;
+        height: 560px;
+    }
+    .output{
+        width: 330px;
+    }
+    .output_2{
+        font-size: 65px;
+    }
+    .grid_btn{
+        grid-gap: 10px;
+    }
+    .btn{
+        width: 75px;
+        height: 55px;
+    }
+    .input{
+        width: 330px;
+    }
+}
