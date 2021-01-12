@@ -74,12 +74,16 @@ function clean() {
 
 function backspace() {
     let num = output.innerHTML;
-    if(num.length === 1){
+    let memoryNum = memory.innerHTML;
+    if(num.length === 1 && memoryNum.length === 1){
         output.innerHTML = '0';
         memory.innerHTML = '';
+        console.log('if');
     }else {
+        // Проверить
         output.innerHTML = num.substring(0, num.length - 1);
-        memory.innerText = output.innerHTML;
+        memory.innerText = memoryNum.substring(0, num.length - 1);
+        console.log('else');
     }
 }
 
@@ -115,6 +119,7 @@ function result(symbol) {
             history.innerHTML += '<span style="margin-right: 20px">float: </span>' +  memory.innerText + '<hr>';
         }
     }else{
+        // Проверить
         // let x = mem[mem.length[0]];
         // for(let i = 0; i <= mem.length; i+3){
         //     x = x + mem[mem.length[i + 1]] + mem[mem.length[i + 2]];
