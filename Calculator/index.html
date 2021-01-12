@@ -8,14 +8,19 @@
 </head>
 <body>
     <div class="container">
+        <input type="checkbox" class="history_checkbox" id="history">
+        <label class="history_btn" for="history">History</label>
+        <div class="history_block">
+            <div id="history_content"></div>
+        </div>
         <div class="output output_1" id="out-top"></div>
         <div class="output output_2" id="out-bottom">0</div>
             <form class="input">
-                <input type="radio" name="int-float" id="float">
+                <input type="radio" name="int-float" id="float" checked="checked" onclick="dot('.')">
                 <label for="float" class="label">FLOAT</label>
-                <input type="radio" name="int-float" id="int" checked="checked">
+                <input type="radio" name="int-float" id="int" onclick="dot('1')">
                 <label for="int" class="label">INT</label>
-                <input type="checkbox" name="priority" id="priority">
+                <input type="checkbox" name="priority" id="priority" checked="checked">
                 <label for="priority" class="label">PRIORITY</label>
             </form>
         <div class="grid_btn">
@@ -27,24 +32,26 @@
             <button class="btn btn_number" onclick="insert('7')">7</button>
             <button onclick="insert('8')" class="btn btn_number">8</button>
             <button onclick="insert('9')" class="btn btn_number">9</button>
-            <button onclick="insert('/')" class="btn btn_action">&divide;</button>
+            <button onclick="act('/')" class="btn btn_action">&divide;</button>
 
             <button onclick="insert('4')" class="btn btn_number">4</button>
             <button onclick="insert('5')" class="btn btn_number">5</button>
             <button onclick="insert('6')" class="btn btn_number">6</button>
-            <button onclick="insert('*')" class="btn btn_action">&times;</button>
+            <button onclick="act('*')" class="btn btn_action">&times;</button>
 
             <button onclick="insert('1')" class="btn btn_number">1</button>
             <button onclick="insert('2')" class="btn btn_number">2</button>
             <button onclick="insert('3')" class="btn btn_number">3</button>
-            <button onclick="insert('-')" class="btn btn_action">-</button>
+            <button onclick="act('-')" class="btn btn_action">-</button>
 
             <button onclick="insert('0')" class="btn btn_number">0</button>
-            <button onclick="insert('.')" class="btn btn_number">,</button>
-            <button onclick="result()" class="btn btn_action">=</button>
-            <button onclick="insert('+')" class="btn btn_action">+</button>
+            <button onclick="insert('.')" class="btn btn_number" id="_dot">,</button>
+            <button onclick="result('=')" class="btn btn_action" id="_result">=</button>
+            <button onclick="act('+')" class="btn btn_action">+</button>
         </div>
+
     </div>
+
 </body>
 <script src="script/script.js"></script>
 </html>

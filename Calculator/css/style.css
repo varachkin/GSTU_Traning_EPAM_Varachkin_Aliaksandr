@@ -6,6 +6,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     font-family: Arial, sans-serif;
     background: linear-gradient(45deg, #ffecd2, #ffffff, #f4deff);
     height: 100vh;
@@ -19,6 +20,49 @@ body{
     flex-direction: column;
     background-color: rgba(120, 120, 120, 0.3);
     box-shadow: 1px 0 10px 2px rgba(0, 0, 0, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+.history_btn{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 60px;
+    height: 10px;
+    padding: 5px;
+    z-index: 4;
+    border: 1px solid rgba(1, 1, 1, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    transition: 0.2s;
+    border-radius: 3px;
+    background-color: #454545;
+    color: #FFFFFF;
+}
+.history_checkbox{
+    display: none;
+}
+.history_block{
+    width: 400px;
+    height: 600px;
+    background-color: #9f8bb0;
+    position: absolute;
+    bottom: -600px;
+    transition: 0.5s;
+    background-color: rgba(120, 120, 120, 0.95);
+}
+#history_content{
+    padding: 35px 5px 5px;
+    color: #FFFFFF;
+}
+.history_checkbox:checked ~ .history_block{
+    position: absolute;
+    bottom: 0;
+}
+.history_checkbox:checked + .history_btn{
+    color: #f4a944;
 }
 .output{
     font-family: SquadaOne, sans-serif;
@@ -32,7 +76,7 @@ body{
 }
 .output_1{
     height: 30px;
-    margin: 20px auto 0;
+    margin: 30px auto 0;
     border-bottom: 0;
     font-size: 22px;
     font-style: italic;
@@ -42,7 +86,7 @@ body{
     height: 90px;
     margin: 0 auto 5px;
     border-top: 0;
-    font-size: 75px;
+    font-size: 71px;
 }
 .input{
     width: 380px;
@@ -53,6 +97,11 @@ body{
     justify-content: space-around;
     align-items: center;
 }
+#_dot:disabled{
+    text-decoration: none;
+    display: none;
+}
+
 .label{
     font-weight: 700;
     color: #353535;
@@ -72,10 +121,10 @@ body{
     cursor: pointer;
     background-color: rgba(254, 254, 254, 0.5);
 }
-input{
+form input{
     display: none;
 }
-input:checked+label{
+form input:checked+label{
     color: red;
     border: 1px solid red;
     box-shadow: 0 0 18px 3px rgba(0, 0, 0, 0.2) inset;
@@ -83,12 +132,12 @@ input:checked+label{
 }
 .grid_btn{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto auto;
     grid-gap: 15px;
     margin: 15px auto;
 }
 .btn{
-    width: 80px;
+    min-width: 80px;
     height: 60px;
     border: 1px solid rgba(1, 1, 1, 0.2);
     display: flex;
@@ -98,7 +147,11 @@ input:checked+label{
     transition: 0.2s;
     border-radius: 3px;
 }
-.btn:focus{
+.btn_big{
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+.btn:focus,.history_btn:focus{
     outline: none;
 }
 .btn_function{
@@ -110,12 +163,13 @@ input:checked+label{
 .btn_action{
     background-color: rgb(227, 204, 140);
 }
-.btn:hover{
-    box-shadow: 1px 0 10px 2px rgba(0, 0, 0, 0.6);
+.btn:hover, .history_btn:hover{
+    box-shadow: 1px 0 8px 2px rgba(0, 0, 0, 0.6);
     color: #f3f3f3;
     cursor: pointer;
     font-weight: 700;
 }
+
 @media (max-width: 500px) {
     .container{
         width: 370px;
@@ -124,8 +178,11 @@ input:checked+label{
     .output{
         width: 330px;
     }
+    .output_1{
+        font-size: 14px;
+    }
     .output_2{
-        font-size: 65px;
+        font-size: 60px;
     }
     .grid_btn{
         grid-gap: 10px;
@@ -136,5 +193,8 @@ input:checked+label{
     }
     .input{
         width: 330px;
+    }
+    .history_btn{
+        right: 15px;
     }
 }
