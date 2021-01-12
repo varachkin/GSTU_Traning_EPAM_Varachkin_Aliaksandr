@@ -1,0 +1,92 @@
+/* flex container, for aligning contact cards, wrap for card transfer,
+when it does not fit on the screen */
+.flex-box{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+/*presses the inputs to the left and gives them the same width*/
+.titles{
+    width: 250px;
+    float: left;
+}
+/*Contact card block styles*/
+.vcard{
+    transition: 0.4s;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin:10px;
+    padding: 7px;
+    height:440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 280px;
+    width: 30%;
+}
+.vcard:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+/*Styles of pictures in cards with contacts*/
+.vcard img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: 0.5s;
+}
+.vcard img:hover{
+    border-radius: 5%;
+}
+.email a{
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+.email a:hover{
+    cursor: pointer;
+    color: #ffa400;
+}
+/*Styles of the block where the feedback form is located. width is specified so that
+displayed correctly on a phone with a screen width of 320*/
+.main_content-form{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    margin:30px 10px 30px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 280px;
+}
+/*Styles for inputs in the feedback form*/
+.main_content-form input,textarea{
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.3);
+    width: 97%;
+    font-size: 20px;
+}
+.main_content-form input:focus,textarea:focus{
+    outline: 1px solid #ffa400;
+}
+/*dimensions for the submit button*/
+#submit{
+    margin: 10px;
+    background-color: #a5a5a5;
+    border-radius: 3px;
+    transition: 0.5s;
+    color: #f8f5f3;
+    border: 2px solid #a5a5a5;
+    padding: 5px 10px;
+}
+/*When you hover over the Submit button, it changes color*/
+#submit:hover{
+    cursor: pointer;
+    background-color: #c5c5c5;
+    color: #004888;
+    border-bottom: 2px solid #a5a5a5;
+}
+/*aligns headings in cards and form*/
+.main_content-form h2{
+    text-align: center;
+}
