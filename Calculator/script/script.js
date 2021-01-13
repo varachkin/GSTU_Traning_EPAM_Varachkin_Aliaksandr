@@ -8,8 +8,11 @@ let pr = document.getElementById('priority');
 let dataMemory;
 let arrResult = [];
 let arr = [];
+let arrFin = [];
+let flag;
 
 function dot(num){
+    output.style.fontSize = '71px';
     if (num === '1'){
         res.classList.add('btn_big');
         d.disabled = true;
@@ -19,6 +22,8 @@ function dot(num){
     }
 }
 function insert(num) {
+    output.style.fontSize = '71px';
+    // Проверка строки на наличие '='. Если есть такой символ, после ввода любого символа поле очищается.
     for(let i = 0; i < memory.innerText.length; i++){
         if(memory.innerText[i] === '='){
             memory.innerHTML = '';
@@ -49,20 +54,26 @@ function insert(num) {
 }
 
 function act(symbol){
+    output.style.fontSize = '71px';
     let x = symbol;
+    if(flag){
+        memory.innerText = output.innerText + symbol;
+        console.log(flag);
+        output.innerText = '';
+    }
     if(output.innerHTML === '0'){
         memory.innerHTML += output.innerText + symbol;
+        arrFin.push(output.innerText, symbol);
         output.innerText = '';
         return;
     }
     if(memory.innerText[memory.innerText.length - 1] === '/' || memory.innerText[memory.innerText.length - 1] === '*' || memory.innerText[memory.innerText.length - 1] === '+' || memory.innerText[memory.innerText.length - 1] === '-') {
         let num = memory.innerText;
+        arrFin.push(output.innerText, symbol);
         memory.innerHTML = num.substring(0, num.length - 1);
         memory.innerText += x;
-        console.log(memory.innerText[memory.innerText.length - 1]);
-        console.log(memory.innerText[memory.innerText.length - 2]);
-        console.log(memory.innerText[memory.innerText.length - 3]);
     }else {
+        arrFin.push(output.innerText, symbol);
         memory.innerText += symbol;
         output.innerText = '';
     }
@@ -71,14 +82,16 @@ function act(symbol){
 function clean() {
     output.innerHTML = '0';
     memory.innerHTML = '';
+    output.style.fontSize = '71px';
 }
 
 function backspace() {
     let num = output.innerHTML;
     let memoryNum = memory.innerHTML;
-    if(num.length === 1 && memoryNum.length === 1){
+    if(num.length === 1 && num === '0' && memoryNum.length === 1){
         output.innerHTML = '0';
         memory.innerHTML = '';
+
     }else {
         output.innerHTML = output.innerHTML.slice(0, -1);
         if(memory.innerText[memory.innerText.length - 1] === '/' || memory.innerText[memory.innerText.length - 1] === '*' || memory.innerText[memory.innerText.length - 1] === '+' || memory.innerText[memory.innerText.length - 1] === '-'){
@@ -98,7 +111,7 @@ function result(symbol) {
     }
 
     let mem = memory.innerText;
-
+    arrFin.push(output.innerText);
     if(pr.checked){
         let x;
         let y;
@@ -124,16 +137,70 @@ function result(symbol) {
             history.innerHTML += '<span style="margin-right: 20px">float: </span>' +  memory.innerText + '<hr>';
         }
     }else{
-        // Доделать приоритеты вычислений
-        // console.log(memory.innerText.length);
-        // console.log(mem);
-        //
-        // let x = mem.length[0];
-        // for(let i = 0; i < mem.length; i+3){
-        //     x = x + mem.length[i + 1] + mem.length[i + 2];
-        //     x = eval(x);
-        // }
+        let n;
+        let res;
+        for(let i = 0; i < arrFin.length; i = i + 2){
+            if(i === 0){
+                n = +arrFin[i];
+            }
+            let f = String(arrFin[i+1]);
+            let m = +arrFin[i+2];
+
+            if(f === '/'){
+                res = (+n / m);
+                console.log(n);
+                console.log(f);
+                console.log(m);
+                console.log('result = ' + res);
+
+            }
+            if(f === '*'){
+                res = (+n * m);
+                console.log(n);
+                console.log(f);
+                console.log(m);
+                console.log('result = ' + res);
+
+            }
+            if(f === '-'){
+                res = (+n - m);
+                console.log(n);
+                console.log(f);
+                console.log(m);
+                console.log('result = ' + res);
+
+            }
+            if(f === '+'){
+                res = (+n + m);
+                console.log(n);
+                console.log(f);
+                console.log(m);
+                console.log('result = ' + res);
+
+            }
+            n = res;
+            console.log('N = RES = ' + n);
+            console.log('typeof n = ' + typeof n);
+        }
+        output.innerText = n;
+        arrResult.push(output.innerText);
+        console.log(arrResult);
+        memory.innerText += symbol + n;
+        arr.push(memory.innerText);
+        console.log(arr);
+        if(integer.checked){
+            history.innerHTML += '<span style="margin-right: 20px">integer - priority off: </span>' +  memory.innerText + '<hr>';
+        }else{
+            history.innerHTML += '<span style="margin-right: 20px">float - priority off: </span>' +  memory.innerText + '<hr>';
+        }
     }
+    let temp = output.innerText;
+    if(temp.length > 11){
+        output.style.fontSize = '35px';
+    }
+    flag = output.innerText;
+    console.log(flag);
+    arrFin = [];
 }
 function memoryWrite() {
     dataMemory = +output.innerHTML;
@@ -146,6 +213,9 @@ function memoryWrite() {
 
 function memoryRead() {
     if(dataMemory){
+        if(dataMemory.length > 11){
+            output.style.fontSize = '35px';
+        }
         let x = memory.innerText;
         if(x.length >= 2){
             output.innerHTML += dataMemory;
@@ -157,5 +227,4 @@ function memoryRead() {
     }else{
         alert('no stored values');
     }
-
 }
