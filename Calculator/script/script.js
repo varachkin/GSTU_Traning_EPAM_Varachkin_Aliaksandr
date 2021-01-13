@@ -6,6 +6,8 @@ let d = document.getElementById('_dot');
 let res = document.getElementById('_result')
 let pr = document.getElementById('priority');
 let dataMemory;
+let arrResult = [];
+let arr = [];
 
 function dot(num){
     if (num === '1'){
@@ -44,7 +46,6 @@ function insert(num) {
             output.innerHTML += num;
         }
     }
-
 }
 
 function act(symbol){
@@ -78,12 +79,13 @@ function backspace() {
     if(num.length === 1 && memoryNum.length === 1){
         output.innerHTML = '0';
         memory.innerHTML = '';
-        console.log('if');
     }else {
-        // Проверить
-        output.innerHTML = num.substring(0, num.length - 1);
-        memory.innerText = memoryNum.substring(0, num.length - 1);
-        console.log('else');
+        output.innerHTML = output.innerHTML.slice(0, -1);
+        if(memory.innerText[memory.innerText.length - 1] === '/' || memory.innerText[memory.innerText.length - 1] === '*' || memory.innerText[memory.innerText.length - 1] === '+' || memory.innerText[memory.innerText.length - 1] === '-'){
+
+        }else{
+            memory.innerText = memory.innerText.slice(0, -1);
+        }
     }
 }
 
@@ -96,11 +98,6 @@ function result(symbol) {
     }
 
     let mem = memory.innerText;
-    console.log(mem.length);
-    console.log(mem);
-    console.log(mem[mem.length - 1]);
-    console.log(mem[mem.length - 2]);
-    console.log(mem[mem.length - 3]);
 
     if(pr.checked){
         let x;
@@ -109,26 +106,42 @@ function result(symbol) {
         y = Math.round(x);
         if(integer.checked){
             output.innerText = y;
+            arrResult.push(output.innerText);
+            console.log(arrResult);
             memory.innerText += symbol + y;
+            arr.push(memory.innerText);
+            console.log(arr);
             history.innerHTML += '<span style="margin-right: 20px">integer: </span>' +  memory.innerText + '<hr>';
         }else{
             x = +x.toFixed(9);
             x = x.toString();
             output.innerText = x;
+            arrResult.push(output.innerText);
+            console.log(arrResult);
             memory.innerText += symbol + x;
+            arr.push(memory.innerText);
+            console.log(arr);
             history.innerHTML += '<span style="margin-right: 20px">float: </span>' +  memory.innerText + '<hr>';
         }
     }else{
-        // Проверить
-        // let x = mem[mem.length[0]];
-        // for(let i = 0; i <= mem.length; i+3){
-        //     x = x + mem[mem.length[i + 1]] + mem[mem.length[i + 2]];
+        // Доделать приоритеты вычислений
+        // console.log(memory.innerText.length);
+        // console.log(mem);
+        //
+        // let x = mem.length[0];
+        // for(let i = 0; i < mem.length; i+3){
+        //     x = x + mem.length[i + 1] + mem.length[i + 2];
         //     x = eval(x);
         // }
     }
 }
 function memoryWrite() {
-    dataMemory = output.innerHTML;
+    dataMemory = +output.innerHTML;
+    if(dataMemory < 0){
+        dataMemory = '(' + String(dataMemory) + ')';
+    }else{
+        dataMemory = String(dataMemory);
+    }
 }
 
 function memoryRead() {
