@@ -28,14 +28,14 @@ function insert(num) {
         if(memory.innerText[i] === '='){
             memory.innerHTML = '';
             output.innerHTML = '';
-            output.innerHTML += num;
-            memory.innerHTML += num;
+            output.innerHTML = '0' + num;
+            memory.innerHTML = '0' + num;
             return;
         }
     }
-    if(output.innerHTML === '0' && num === '.' && output.innerHTML[output.innerHTML.length - 1] === undefined){
+    if(output.innerHTML === '0' && num === '.' ){
+        memory.innerHTML = '0' + num;
         output.innerHTML += num;
-        memory.innerHTML = output.innerHTML;
         return;
     }
     if(output.innerHTML.length <= 10){
