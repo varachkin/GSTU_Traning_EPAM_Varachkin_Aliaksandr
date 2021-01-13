@@ -26,10 +26,14 @@ function insert(num) {
     // Проверка строки на наличие '='. Если есть такой символ, после ввода любого символа поле очищается.
     for(let i = 0; i < memory.innerText.length; i++){
         if(memory.innerText[i] === '='){
-            memory.innerHTML = '';
-            output.innerHTML = '';
-            output.innerHTML = '0' + num;
-            memory.innerHTML = '0' + num;
+
+            if(num === '.'){
+                output.innerHTML = '0' + num;
+                memory.innerHTML = '0' + num;
+            }else{
+                output.innerHTML += num;
+                memory.innerHTML += num;
+            }
             return;
         }
     }
@@ -51,6 +55,13 @@ function insert(num) {
             output.innerHTML += num;
         }
     }
+    if(num === '.'){
+        for(let i = 0; i < output.innerText.length; i++){
+            if(output.innerText[i] === '.'){
+                return;
+            }
+        }
+    }
 }
 
 function act(symbol){
@@ -58,9 +69,15 @@ function act(symbol){
     let x = symbol;
     if(flag){
         memory.innerText = output.innerText + symbol;
-        console.log(flag);
+        console.log('flag' + flag);
         output.innerText = '';
+        flag = false;
     }
+    if(symbol === '/' || symbol === '*' || symbol === '-' || symbol === '+'){
+        if(output.innerText[output.innerText.length - 1] === '.'){
+            return;
+            }
+        }
     if(output.innerHTML === '0'){
         memory.innerHTML += output.innerText + symbol;
         arrFin.push(output.innerText, symbol);
@@ -198,7 +215,8 @@ function result(symbol) {
     if(temp.length > 11){
         output.style.fontSize = '35px';
     }
-    flag = output.innerText;
+    flag = arrResult;
+    console.log(arrResult)
     console.log(flag);
     arrFin = [];
 }
