@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="page">
+        <img src="img/pizza.jpg" alt="" class="img">
+        <div class="container">
+            <form action="" class="form">
+                <ul>
+                    <li>
+                        <label for="standard"><input type="radio" id="standard" name="dough">Standard</label>
+                    </li>
+                    <li>
+                        <label for="thin"><input type="radio" id="thin" name="dough">Thin</label>
+                    </li>
+                    <li>
+                        <label for="thick"><input type="radio" id="thick" name="dough">Thick</label>
+                    </li>
+                    <li>
+                        <label for="calzone"><input type="radio" id="calzone" name="dough">Calzone</label>
+                    </li>
+                    <li>
+                        <label for="italian"><input type="radio" id="italian" name="dough">Italian</label>
+                    </li>
+                </ul>
+            </form>
+            <form action="" class="form">
+                <ul>
+                    <li>
+                        <label for="size_32"><input type="radio" id="size_32" name="size">Size 30 cm</label>
+                    </li>
+                    <li>
+                        <label for="size_40"><input type="radio" id="size_40" name="size">Size 40 cm</label>
+                    </li>
+                    <li>
+                        <label for="size_45"><input type="radio" id="size_45" name="size">Size 45 cm</label>
+                    </li>
+                </ul>
+            </form>
+            <form action="" class="form">
+                <ul>
+                    <li>
+                        <label><input type="checkbox" name="components" id="cheese">cheese</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" name="components" id="bacon">bacon</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" name="components" id="tomato">tomato</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" name="components" id="paprika">paprika</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" name="components" id="corn">corn</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" name="components" id="pineapple">pineapple</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" name="components" id="olives">olives</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" name="components" id="shrimp">shrimp</label>
+                    </li>
+                </ul>
+            </form>
+            <form action="" class="form">
+                <ul>
+                    <li>
+                        <label><input type="checkbox" name="additionally" id="cheese_sauce">cheese sauce</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" name="additionally" id="tomato_sauce">tomato sauce</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" name="additionally" id="spicy_sauce">spicy sauce</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" name="additionally" id="mustard_sauce">mustard sauce</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox" name="additionally" id="greens">greens</label>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <button onclick="cooking()">submit</button>
+        <div class="information_cost">Cost: </div>
+        <div class="information_calories">Calories: </div>
+        <div class="information_image"></div>
+    </div>
+</body>
+<script src="script/script.js"></script>
+</html>

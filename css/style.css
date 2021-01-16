@@ -1,0 +1,24 @@
+body{
+    margin: 0;
+}
+.page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.img{
+    width: 400px;
+    height: 300px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.form ul li label{
+
+}
+ul{
+    list-style: none;
+}
