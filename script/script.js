@@ -7,6 +7,7 @@ let additionallyEl = document.getElementsByName("additionally");
 let informationCost = document.getElementsByClassName('information_cost');
 let informationCalories = document.getElementsByClassName('information_calories');
 let information_image = document.getElementsByClassName('information_image');
+let img_dough_block = document.getElementsByClassName('img_dough_block');
 
 // //  Выбранное значение теста
 // let dough;
@@ -115,6 +116,10 @@ let componentsObj = {
         cost: 5,
         calories: 2,
     },
+    mushrooms: {
+        cost: 5,
+        calories: 2,
+    }
 };
 
 //   Объект с дополнительными ингредиентами
@@ -162,6 +167,7 @@ function cooking(){
     if(doughEl){
         for(let i = 0; i < doughEl.length; i++){
             if(doughEl[i].checked){
+
                 for(let key in doughObj){
                     if(doughEl[i].id === key){
                         pizzaObj.dough.cost = doughObj[key]["cost"];

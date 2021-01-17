@@ -22,3 +22,33 @@ body{
 ul{
     list-style: none;
 }
+.information_image{
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(1,1,1,0.2);
+}
+.information_image div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+.img_dough{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 1;
+    transition: 1s;
+}
+.img_components{
+    width: 215px;
+    height: 215px;
+    position: absolute;
+    opacity: 1;
+    transition: 1s;
+}
