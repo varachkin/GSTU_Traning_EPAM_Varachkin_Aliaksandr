@@ -7,7 +7,6 @@ let additionallyEl = document.getElementsByName("additionally");
 let informationCost = document.getElementsByClassName('information_cost');
 let informationCalories = document.getElementsByClassName('information_calories');
 let information_image = document.getElementsByClassName('information_image');
-let img_dough_block = document.getElementsByClassName('img_dough_block');
 
 // //  Выбранное значение теста
 // let dough;
@@ -167,7 +166,6 @@ function cooking(){
     if(doughEl){
         for(let i = 0; i < doughEl.length; i++){
             if(doughEl[i].checked){
-
                 for(let key in doughObj){
                     if(doughEl[i].id === key){
                         pizzaObj.dough.cost = doughObj[key]["cost"];
@@ -244,6 +242,42 @@ function cost(num){
     }
     console.log('Final cost pizza = ' + finalCostPizza);
     return finalCostPizza;
+}
+
+function viewImgDough(){
+    for(let i = 0; i < doughEl.length; i++){
+        if(doughEl[i].checked){
+            document.querySelectorAll('.img_dough_block img')[i].style.opacity = "1";
+        }else{
+            document.querySelectorAll('.img_dough_block img')[i].style.opacity = "0";
+        }
+    }
+}
+
+function viewImgSize(num){
+    if(num === 32){
+        document.getElementsByClassName('img_dough').style.width = "400px";
+    }
+
+}
+function viewImgComponents(){
+    for(let i = 0; i < componentsEl.length; i++){
+        if(componentsEl[i].checked){
+            document.querySelectorAll('.img_components_block img')[i].style.opacity = "1";
+        }else{
+            document.querySelectorAll('.img_components_block img')[i].style.opacity = "0";
+        }
+    }
+}
+
+function viewImgAdditionally(){
+    for(let i = 0; i < additionallyEl.length; i++){
+        if(additionallyEl[i].checked){
+            document.querySelectorAll('.img_additionally_block img')[i].style.opacity = "1";
+        }else{
+            document.querySelectorAll('.img_additionally_block img')[i].style.opacity = "0";
+        }
+    }
 }
 // function displayInfo(x, y){
 //     informationCost.innerHtml = 'Cost ' + x;
