@@ -5,6 +5,7 @@ let sizeEl = document.getElementsByName("size");
 let componentsEl = document.getElementsByName("components");
 let additionallyEl = document.getElementsByName("additionally");
 let json;
+
 // //  Выбранное значение теста
 // let dough;
 //
@@ -400,6 +401,69 @@ function viewImgAdditionally(){
             document.querySelectorAll('.img_additionally_block img')[i].style.opacity = "0";
         }
     }
+}
+
+//   Функция сброса
+function reset(){
+    for(let i =0; i < doughEl.length; i++){
+        doughEl[i].checked = false;
+    }
+    for(let i =0; i < sizeEl.length; i++){
+        sizeEl[i].checked = false;
+    }
+    for(let i =0; i < componentsEl.length; i++){
+        componentsEl[i].checked = false;
+    }
+    for(let i =0; i < additionallyEl.length; i++){
+        additionallyEl[i].checked = false;
+    }
+
+    viewImgDough();
+    viewImgSize(32);
+    viewImgComponents();
+    viewImgAdditionally();
+    document.getElementById('information_cost').innerHTML = 'Cost: ';
+    document.getElementById('information_calories').innerHTML = 'Calories: ';
+    pizzaObj = {
+        dough: {
+            cost: 0,
+            calories: 0,
+        },
+        size: {
+            cost: 0,
+            calories: 0,
+        },
+        components:{
+            cost: 0,
+            calories: 0,
+        },
+        additionally: {
+            cost: 0,
+            calories: 0,
+        },
+    };
+    finalPizzaObj = {
+        dough: {
+            cost: 0,
+            name: '',
+        },
+        size: {
+            cost: 0,
+            name: '',
+        },
+        components: {
+            cost: 0,
+            components:{
+
+            }
+        },
+        additionally: {
+            cost: 0,
+            additionally:{
+
+            }
+        },
+    };
 }
 
 
