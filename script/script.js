@@ -4,9 +4,6 @@ let doughEl = document.getElementsByName("dough");
 let sizeEl = document.getElementsByName("size");
 let componentsEl = document.getElementsByName("components");
 let additionallyEl = document.getElementsByName("additionally");
-let informationCost = document.getElementsByClassName('information_cost');
-let informationCalories = document.getElementsByClassName('information_calories');
-let information_image = document.getElementsByClassName('information_image');
 
 // //  Выбранное значение теста
 // let dough;
@@ -148,10 +145,13 @@ let additionallyObj = {
 
 
 //   Стоимость пиццы до наценки
-let costPizza = 0;
+let costPizza;
 
 //   Калорийность пиццы
-let caloriesPizza = 0;
+let caloriesPizza;
+
+//   Сумма наценки
+let taxCost;
 
 //   Стоимость пиццы ПОСЛЕ наценки
 let finalCostPizza;
@@ -224,8 +224,8 @@ function cooking(){
     console.log(caloriesPizza);
     console.log(pizzaObj);
     cost(costPizza);
-    informationCost.innerHtml += costPizza;
-    informationCalories.innerText += caloriesPizza;
+    document.getElementById('information_cost').innerHTML = 'Cost: ' + costPizza + ' + ' + taxCost.toFixed(1) + ' = ' + '<span>' + finalCostPizza.toFixed(2) + '</span>' + '  $';
+    document.getElementById('information_calories').innerHTML = 'Calories: ' + '<span>' + caloriesPizza + '</span>' + '  kkal';
 }
 
 //   Функция расчитывающая стоимость пиццы.
@@ -233,17 +233,21 @@ function cost(num){
     //   Расчет конечной стоимости пиццы с учетом наценки
     if(num < 100){
         finalCostPizza = num + num * 0.2;
+        taxCost = num * 0.2;
     }
     if(num >= 100 && num <= 150){
         finalCostPizza = num + num * 0.15;
+        taxCost = num * 0.15;
     }
     if(num > 150){
         finalCostPizza = num + num * 0.1;
+        taxCost = num * 0.1;
     }
     console.log('Final cost pizza = ' + finalCostPizza);
     return finalCostPizza;
 }
 
+//   Функция отображения теста
 function viewImgDough(){
     for(let i = 0; i < doughEl.length; i++){
         if(doughEl[i].checked){
@@ -254,12 +258,41 @@ function viewImgDough(){
     }
 }
 
+//   Функция отображения размера пиццы
 function viewImgSize(num){
     if(num === 32){
-        document.getElementsByClassName('img_dough').style.width = "400px";
+        for(let i = 0; i < doughEl.length; i++){
+            document.querySelectorAll('.img_dough_block img')[i].style.width = "260px";
+            document.querySelectorAll('.img_dough_block img')[i].style.height = "260px";
+            }
+        for(let n = 0; n < componentsEl.length; n++){
+            document.querySelectorAll('.img_components_block img')[n].style.width = "227px";
+            document.querySelectorAll('.img_components_block img')[n].style.height = "227px";
+        }
     }
-
+    if(num === 40){
+        for(let i = 0; i < doughEl.length; i++){
+            document.querySelectorAll('.img_dough_block img')[i].style.width = "320px";
+            document.querySelectorAll('.img_dough_block img')[i].style.height = "320px";
+        }
+        for(let n = 0; n < componentsEl.length; n++){
+            document.querySelectorAll('.img_components_block img')[n].style.width = "280px";
+            document.querySelectorAll('.img_components_block img')[n].style.height = "280px";
+        }
+    }
+    if(num === 45){
+        for(let i = 0; i < doughEl.length; i++){
+            document.querySelectorAll('.img_dough_block img')[i].style.width = "370px";
+            document.querySelectorAll('.img_dough_block img')[i].style.height = "370px";
+        }
+        for(let n = 0; n < componentsEl.length; n++){
+            document.querySelectorAll('.img_components_block img')[n].style.width = "320px";
+            document.querySelectorAll('.img_components_block img')[n].style.height = "320px";
+        }
+    }
 }
+
+//   Функция отображения компонентов пиццы
 function viewImgComponents(){
     for(let i = 0; i < componentsEl.length; i++){
         if(componentsEl[i].checked){
@@ -270,6 +303,7 @@ function viewImgComponents(){
     }
 }
 
+//   Функция отображения дополнительных ингридиентов
 function viewImgAdditionally(){
     for(let i = 0; i < additionallyEl.length; i++){
         if(additionallyEl[i].checked){
@@ -279,9 +313,5 @@ function viewImgAdditionally(){
         }
     }
 }
-// function displayInfo(x, y){
-//     informationCost.innerHtml = 'Cost ' + x;
-//     information_calories += y.innerText;
-// }
 
 

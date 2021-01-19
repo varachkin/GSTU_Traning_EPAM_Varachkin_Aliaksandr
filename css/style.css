@@ -129,11 +129,27 @@ button:hover{
     font-size: 30px;
     color: #f3f3f3;
     padding: 10px 20px;
+    height: 45px;
+    width: 100%;
+    font-weight: 300;
+}
+.information_cost span{
+    color: orange;
+    padding: 0 10px;
+    font-weight: 600;
 }
 .information_calories{
     font-size: 30px;
     color: #f3f3f3;
     padding: 10px 20px;
+    height: 45px;
+    width: 100%;
+    font-weight: 300;
+}
+.information_calories span{
+    color: orange;
+    padding: 0 10px;
+    font-weight: 600;
 }
 .img_container_block{
     display: flex;
@@ -172,10 +188,12 @@ button:hover{
     align-items: center;
     justify-content: center;
     position: absolute;
-    width: 87%;
-    height: 87%;
     opacity: 0;
     transition: 1s;
+}
+.img_components{
+    width: 87%;
+    height: 87%;
 }
 .img_additionally_block{
     position: absolute;
@@ -193,9 +211,10 @@ button:hover{
 
 @media (max-width: 1400px) {
     .information_image{
-        flex-direction: row-reverse;
+        flex-direction: column;
         width: 100%;
         height: 450px;
+        text-align: center;
     }
     .result{
         position: relative;
@@ -256,6 +275,9 @@ button:hover{
     }
     .information_cost, .information_calories{
         font-size: 22px;
+    }
+    .information_calories span, .information_cost span{
+        font-size: 30px;
     }
 }
 @media (max-width: 600px) {
