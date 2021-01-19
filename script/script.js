@@ -4,7 +4,7 @@ let doughEl = document.getElementsByName("dough");
 let sizeEl = document.getElementsByName("size");
 let componentsEl = document.getElementsByName("components");
 let additionallyEl = document.getElementsByName("additionally");
-
+let json;
 // //  Выбранное значение теста
 // let dough;
 //
@@ -28,13 +28,33 @@ let pizzaObj = {
         cost: 0,
         calories: 0,
     },
-    components: {
+    components:{
         cost: 0,
         calories: 0,
     },
     additionally: {
         cost: 0,
         calories: 0,
+    },
+};
+let finalPizzaObj = {
+    dough: {
+        cost: 0,
+    },
+    size: {
+        cost: 0,
+    },
+    components: {
+        cost: 0,
+        components:{
+
+        }
+    },
+    additionally: {
+        cost: 0,
+        additionally:{
+
+        }
     },
 };
 
@@ -65,81 +85,85 @@ let doughObj = {
 //   Объект с размерами пиццы
 let sizeObj = {
     size_32: {
-        cost: 5,
-        calories: 2,
+        cost: 0,
+        calories: 0,
     },
     size_40: {
-        cost: 9,
-        calories: 2,
+        cost: 0.3,
+        calories: 0.3,
     },
     size_45: {
-        cost: 12,
-        calories: 2,
+        cost: 0.5,
+        calories: 0.5,
     },
 };
 
 //   Объект с видами компонентов
 let componentsObj = {
     cheese: {
-        cost: 5,
-        calories: 2,
+        cost: 3,
+        calories: 150,
     },
     bacon: {
-        cost: 5,
-        calories: 2,
+        cost: 6,
+        calories: 230,
     },
     tomato: {
-        cost: 5,
-        calories: 2,
+        cost: 2,
+        calories: 70,
     },
     paprika: {
-        cost: 5,
-        calories: 2,
+        cost: 2,
+        calories: 70,
     },
     corn: {
-        cost: 5,
-        calories: 2,
+        cost: 1,
+        calories: 90,
     },
     pineapple: {
-        cost: 5,
-        calories: 2,
+        cost: 4,
+        calories: 110,
     },
     olives: {
-        cost: 5,
-        calories: 2,
+        cost: 3,
+        calories: 60,
     },
     shrimp: {
-        cost: 5,
-        calories: 2,
+        cost: 4,
+        calories: 130,
     },
     mushrooms: {
-        cost: 5,
-        calories: 2,
-    }
+        cost: 8,
+        calories: 110,
+    },
+    greens: {
+        cost: 1,
+        calories: 20,
+    },
 };
 
 //   Объект с дополнительными ингредиентами
 let additionallyObj = {
     cheese_sauce: {
         cost: 5,
-        calories: 2,
+        calories: 80,
     },
     tomato_sauce: {
         cost: 5,
-        calories: 2,
+        calories: 80,
     },
     spicy_sauce: {
         cost: 5,
-        calories: 2,
+        calories: 80,
     },
     mustard_sauce: {
         cost: 5,
-        calories: 2,
+        calories: 80,
     },
-    greens: {
+    wasabi: {
         cost: 5,
-        calories: 2,
-    },
+        calories: 80,
+    }
 };
 //****************************  ОБЪЕКТЫ  *******************************//
 
@@ -172,50 +196,50 @@ function cooking(){
                         pizzaObj.dough.calories = doughObj[key]["calories"];
                         console.log(costPizza);
                         console.log(caloriesPizza);
+                        if(sizeEl){
+                            for(let x = 0; x < sizeEl.length; x++){
+                                if(sizeEl[x].checked && doughEl[i].checked){
+                                    for(let key in sizeObj){
+                                        if(sizeEl[x].id === key){
+                                            pizzaObj.size.cost = sizeObj[key]["cost"] * pizzaObj.dough.cost;
+                                            pizzaObj.size.calories = sizeObj[key]["calories"] * pizzaObj.dough.calories;
+                                        }
+                                    }
+                                    if(componentsEl){
+                                        for(let i = 0; i < componentsEl.length; i++){
+                                            if(componentsEl[i].checked){
+                                                for(let key in componentsObj){
+                                                    if(componentsEl[i].id === key){
+                                                        pizzaObj.components.cost += componentsObj[key]["cost"];
+                                                        pizzaObj.components.calories += componentsObj[key]["calories"];
+
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    if(additionallyEl){
+                                        for(let i = 0; i < additionallyEl.length; i++){
+                                            if(additionallyEl[i].checked){
+                                                for(let key in additionallyObj){
+                                                    if(additionallyEl[i].id === key){
+                                                        pizzaObj.additionally.cost += additionallyObj[key]["cost"];
+                                                        pizzaObj.additionally.calories += additionallyObj[key]["calories"];
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     }
 
-    if(sizeEl){
-        for(let i = 0; i < sizeEl.length; i++){
-            if(sizeEl[i].checked){
-                for(let key in sizeObj){
-                    if(sizeEl[i].id === key){
-                        pizzaObj.size.cost = sizeObj[key]["cost"];
-                        pizzaObj.size.calories = sizeObj[key]["calories"];
-                    }
-                }
-            }
-        }
-    }
-
-    if(componentsEl){
-        for(let i = 0; i < componentsEl.length; i++){
-            if(componentsEl[i].checked){
-                for(let key in componentsObj){
-                    if(componentsEl[i].id === key){
-                        pizzaObj.components.cost += componentsObj[key]["cost"];
-                        pizzaObj.components.calories += componentsObj[key]["calories"];
-                    }
-                }
-            }
-        }
-    }
-
-    if(additionallyEl){
-        for(let i = 0; i < additionallyEl.length; i++){
-            if(additionallyEl[i].checked){
-                for(let key in additionallyObj){
-                    if(additionallyEl[i].id === key){
-                        pizzaObj.additionally.cost += additionallyObj[key]["cost"];
-                        pizzaObj.additionally.calories += additionallyObj[key]["calories"];
-                    }
-                }
-            }
-        }
-    }
     costPizza = pizzaObj.dough.cost + pizzaObj.size.cost + pizzaObj.components.cost + pizzaObj.additionally.cost;
     caloriesPizza = pizzaObj.dough.calories + pizzaObj.size.calories + pizzaObj.components.calories + pizzaObj.additionally.calories;
     console.log('Стоимость: ' + pizzaObj.dough.cost + ' / ' + pizzaObj.size.cost + ' / ' + pizzaObj.components.cost + ' / ' + pizzaObj.additionally.cost);
@@ -224,22 +248,86 @@ function cooking(){
     console.log(caloriesPizza);
     console.log(pizzaObj);
     cost(costPizza);
-    document.getElementById('information_cost').innerHTML = 'Cost: ' + costPizza + ' + ' + taxCost.toFixed(1) + ' = ' + '<span>' + finalCostPizza.toFixed(2) + '</span>' + '  $';
-    document.getElementById('information_calories').innerHTML = 'Calories: ' + '<span>' + caloriesPizza + '</span>' + '  kkal';
+    document.getElementById('information_cost').innerHTML = 'Cost: ' + costPizza + ' + ' + taxCost.toFixed(2) + ' = ' + '<span>' + finalCostPizza.toFixed(2) + '</span>' + '  $';
+    document.getElementById('information_calories').innerHTML = 'Calories: ' + '<span>' + caloriesPizza + '</span>' + '  Kkal';
 }
 
 //   Функция расчитывающая стоимость пиццы.
 function cost(num){
+    //   Запись информации о тесте в объект finalPizzaObj
+    finalPizzaObj.dough["cost"] = pizzaObj.dough["cost"];
+    for(let x = 0; x < doughEl.length; x++) {
+        if (doughEl[x].checked) {
+            for (let key in doughObj) {
+                if (doughEl[x].id === key) {
+                    finalPizzaObj.dough["name"] = key;
+                }
+            }
+        }
+    }
+    //   Запись информации о размере в finalPizzaObj
+    finalPizzaObj.size["cost"] = pizzaObj.size["cost"] * pizzaObj.dough["cost"];
+    for(let x = 0; x < sizeEl.length; x++) {
+        if (sizeEl[x].checked) {
+            for (let key in sizeObj) {
+                if (sizeEl[x].id === key) {
+                    finalPizzaObj.size["name"] = key;
+                }
+            }
+        }
+    }
+
+
+
+    //   Запись информации о добавленных ингредиентах в объект finalPizzaObj
+    for(let i = 0; i < componentsEl.length; i++) {
+        if (componentsEl[i].checked) {
+            for (let key in componentsObj) {
+                if (componentsEl[i].id === key) {
+                    finalPizzaObj.components.components[key] = key;
+                }
+            }
+        }else {
+            for (let key in componentsObj) {
+                if (componentsEl[i].id === key) {
+                    delete finalPizzaObj.components.components[key];
+                }
+            }
+        }
+    }
+    finalPizzaObj.components['cost'] = pizzaObj.components['cost'];
+
+    //   Запись информации о дополнительных ингредиентах в объект finalPizzaObj
+    for(let i = 0; i < additionallyEl.length; i++) {
+        if (additionallyEl[i].checked) {
+            for (let key in additionallyObj) {
+                if (additionallyEl[i].id === key) {
+                    finalPizzaObj.additionally.additionally[key] = key;
+                }
+            }
+        }else {
+            for (let key in additionallyObj) {
+                if (additionallyEl[i].id === key) {
+                    delete finalPizzaObj.additionally.additionally[key];
+                }
+            }
+        }
+    }
+    finalPizzaObj.additionally['cost'] = pizzaObj.additionally['cost'];
+    console.log(finalPizzaObj);
+    json = JSON.stringify(finalPizzaObj);
+    console.log(json);
+
     //   Расчет конечной стоимости пиццы с учетом наценки
     if(num < 100){
         finalCostPizza = num + num * 0.2;
         taxCost = num * 0.2;
     }
-    if(num >= 100 && num <= 150){
+    if(num >= 20 && num <= 35){
         finalCostPizza = num + num * 0.15;
         taxCost = num * 0.15;
     }
-    if(num > 150){
+    if(num > 35){
         finalCostPizza = num + num * 0.1;
         taxCost = num * 0.1;
     }
