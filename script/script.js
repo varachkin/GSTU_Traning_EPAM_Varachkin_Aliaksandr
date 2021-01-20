@@ -269,11 +269,13 @@ function cooking(){
     if(pizzaObj.components['cost'] === 0){
         document.getElementById('text_popup').innerHTML = 'No <span>components</span> selected. Select the <span>components</span> of pizza !!!';
         viewPopup();
+    }else{
+        if(num_components < 3){
+            document.getElementById('text_popup').innerHTML = 'You added too few <span>components</span> to the pizza. The minimum number of <span>components</span> is 3 !!!';
+            viewPopup();
+        }
     }
-    if(num_components < 3){
-        document.getElementById('text_popup').innerHTML = 'You added too few <span>components</span> to the pizza. The minimum number of <span>components</span> is 3 !!!';
-        viewPopup();
-    }
+
     num_components = 0;
 }
 
