@@ -356,7 +356,14 @@ function cost(num){
     }
     finalPizzaObj.additionally['cost'] = pizzaObj.additionally['cost'];
     console.log(finalPizzaObj);
-    json = JSON.stringify(finalPizzaObj);
+    fetch('https://json-app-server.azurewebsites.net/pizza', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(finalPizzaObj)
+    }).then(res => res.json()).then(console.log);
     console.log(json);
 
     //   Расчет конечной стоимости пиццы с учетом наценки
@@ -386,7 +393,6 @@ function viewImgDough(){
         }
     }
 }
-let flagDough = viewImgDough();
 
 //   Функция отображения размера пиццы
 function viewImgSize(num){
