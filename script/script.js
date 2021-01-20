@@ -5,7 +5,7 @@ let sizeEl = document.getElementsByName("size");
 let componentsEl = document.getElementsByName("components");
 let additionallyEl = document.getElementsByName("additionally");
 let json;
-
+let num_components = 0;
 // //  Выбранное значение теста
 // let dough;
 //
@@ -209,6 +209,7 @@ function cooking(){
                                     if(componentsEl){
                                         for(let i = 0; i < componentsEl.length; i++){
                                             if(componentsEl[i].checked){
+                                                num_components++;
                                                 for(let key in componentsObj){
                                                     if(componentsEl[i].id === key){
                                                         pizzaObj.components.cost += componentsObj[key]["cost"];
@@ -249,6 +250,7 @@ function cooking(){
     console.log(caloriesPizza);
     console.log(pizzaObj);
     cost(costPizza);
+    console.log(num_components);
 
     if(finalCostPizza !== 0){
         document.getElementById('information_cost').innerHTML = 'Cost: ' + costPizza.toFixed(2) + ' + ' + taxCost.toFixed(2) + ' = ' + '<span>' + finalCostPizza.toFixed(2) + '</span>' + '  $';
@@ -268,6 +270,11 @@ function cooking(){
         document.getElementById('text_popup').innerHTML = 'No <span>components</span> selected. Select the <span>components</span> of pizza !!!';
         viewPopup();
     }
+    if(num_components < 3){
+        document.getElementById('text_popup').innerHTML = 'You added too few <span>components</span> to the pizza. The minimum number of <span>components</span> is 3 !!!';
+        viewPopup();
+    }
+    num_components = 0;
 }
 
 //   Функция отображения предупреждения
@@ -505,6 +512,7 @@ function reset(){
             }
         },
     };
+    num_components = 0;
 }
 
 
