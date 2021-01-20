@@ -251,7 +251,7 @@ function cooking(){
     cost(costPizza);
 
     if(finalCostPizza !== 0){
-        document.getElementById('information_cost').innerHTML = 'Cost: ' + costPizza + ' + ' + taxCost.toFixed(2) + ' = ' + '<span>' + finalCostPizza.toFixed(2) + '</span>' + '  $';
+        document.getElementById('information_cost').innerHTML = 'Cost: ' + costPizza.toFixed(2) + ' + ' + taxCost.toFixed(2) + ' = ' + '<span>' + finalCostPizza.toFixed(2) + '</span>' + '  $';
         document.getElementById('information_calories').innerHTML = 'Calories: ' + '<span>' + caloriesPizza + '</span>' + '  Kkal';
     }
     if(pizzaObj.dough['cost'] === 0){
