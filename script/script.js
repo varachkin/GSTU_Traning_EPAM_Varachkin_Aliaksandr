@@ -86,8 +86,8 @@ let doughObj = {
 //   Объект с размерами пиццы
 let sizeObj = {
     size_32: {
-        cost: 0,
-        calories: 0,
+        cost: 0.01,
+        calories: 0.01,
     },
     size_40: {
         cost: 0.3,
@@ -249,8 +249,39 @@ function cooking(){
     console.log(caloriesPizza);
     console.log(pizzaObj);
     cost(costPizza);
-    document.getElementById('information_cost').innerHTML = 'Cost: ' + costPizza + ' + ' + taxCost.toFixed(2) + ' = ' + '<span>' + finalCostPizza.toFixed(2) + '</span>' + '  $';
-    document.getElementById('information_calories').innerHTML = 'Calories: ' + '<span>' + caloriesPizza + '</span>' + '  Kkal';
+
+    if(finalCostPizza !== 0){
+        document.getElementById('information_cost').innerHTML = 'Cost: ' + costPizza + ' + ' + taxCost.toFixed(2) + ' = ' + '<span>' + finalCostPizza.toFixed(2) + '</span>' + '  $';
+        document.getElementById('information_calories').innerHTML = 'Calories: ' + '<span>' + caloriesPizza + '</span>' + '  Kkal';
+    }
+    if(pizzaObj.dough['cost'] === 0){
+        document.getElementById('text_popup').innerHTML = 'No <span>dough</span> type selected. Select the type of pizza <span>dough</span> !!!';
+        viewPopup();
+        return;
+    }
+    if(finalPizzaObj.size['cost'] === 0){
+        document.getElementById('text_popup').innerHTML = 'No dough <span>size</span> selected. Select the type of pizza <span>size</span> !!!';
+        viewPopup();
+        return;
+    }
+    if(pizzaObj.components['cost'] === 0){
+        document.getElementById('text_popup').innerHTML = 'No <span>components</span> selected. Select the <span>components</span> of pizza !!!';
+        viewPopup();
+    }
+}
+
+//   Функция отображения предупреждения
+function viewPopup(){
+    document.getElementById('popup').style.opacity = '1';
+    document.getElementById('popup').style.visibility = 'visible';
+    document.getElementById('popup_content').style.transform = 'perspective(600px) translate(0, 0) rotateX(0)';
+}
+
+//   Функция закрытия предупреждения
+function closePopup(){
+    document.getElementById('popup').style.opacity = '0';
+    document.getElementById('popup').style.visibility = 'hidden';
+    document.getElementById('popup_content').style.transform = 'perspective(600px) translate(0, -100%) rotateX(45deg)';
 }
 
 //   Функция расчитывающая стоимость пиццы.
@@ -346,6 +377,7 @@ function viewImgDough(){
         }
     }
 }
+let flagDough = viewImgDough();
 
 //   Функция отображения размера пиццы
 function viewImgSize(num){
@@ -386,6 +418,15 @@ function viewImgComponents(){
     for(let i = 0; i < componentsEl.length; i++){
         if(componentsEl[i].checked){
             document.querySelectorAll('.img_components_block img')[i].style.opacity = "1";
+            for(let n = 0; n < doughEl.length; n++){
+                if(doughEl[n].checked){
+                    componentsEl[i].checked = true;
+                    document.querySelectorAll('.img_components_block img')[i].style.opacity = "1";
+                    break;
+                }
+                document.querySelectorAll('.img_components_block img')[i].style.opacity = "0";
+                componentsEl[i].checked = false;
+            }
         }else{
             document.querySelectorAll('.img_components_block img')[i].style.opacity = "0";
         }
