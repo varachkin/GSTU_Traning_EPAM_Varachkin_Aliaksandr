@@ -271,7 +271,7 @@ function cooking(){
         viewPopup();
     }else{
         if(num_components < 3){
-            document.getElementById('text_popup').innerHTML = 'You added too few <span>components</span> to the pizza. The minimum number of <span>components</span> is 3 !!!';
+            document.getElementById('text_popup').innerHTML = 'You added too few <span>components</span> to the pizza. <br>The minimum number of <span>components</span> is 3 !!!';
             viewPopup();
         }
     }

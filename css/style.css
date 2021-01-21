@@ -103,6 +103,10 @@ button{
     margin: 30px 10px 10px;
     text-transform: uppercase;
 }
+button span{
+    margin: 0 12px;
+    font-size: 22px;
+}
 button:hover{
     cursor: pointer;
     background: linear-gradient(#edc087, #e17c02);
@@ -238,11 +242,13 @@ button:hover{
     position: relative;
     transition: 0.8s;
     transform: perspective(700px) translate(0, -200%) rotateX(45deg);
+    text-align: center;
 }
 .title_popup{
     font-size: 40px;
-    margin-bottom: 30px;
+    margin: 15px 0 30px;
     font-weight: 600;
+    text-align: center;
 }
 .text_popup span{
     color: #a07637;
