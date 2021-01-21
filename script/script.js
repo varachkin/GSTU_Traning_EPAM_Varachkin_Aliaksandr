@@ -6,6 +6,7 @@ let componentsEl = document.getElementsByName("components");
 let additionallyEl = document.getElementsByName("additionally");
 let json;
 let num_components = 0;
+let sendObj = {};
 // //  Выбранное значение теста
 // let dough;
 //
@@ -253,7 +254,7 @@ function cooking(){
     console.log(num_components);
 
     if(finalCostPizza !== 0){
-        document.getElementById('information_cost').innerHTML = 'Cost: ' + costPizza.toFixed(2) + ' + ' + taxCost.toFixed(2) + ' = ' + '<span>' + finalCostPizza.toFixed(2) + '</span>' + '  $';
+        document.getElementById('information_cost').innerHTML = 'Cost: ' + costPizza.toFixed(2) + ' + ' + taxCost.toFixed(2) + ' = ' + ' $' + '<span>' + finalCostPizza.toFixed(2) + '</span>';
         document.getElementById('information_calories').innerHTML = 'Calories: ' + '<span>' + caloriesPizza + '</span>' + '  Kkal';
     }
     if(pizzaObj.dough['cost'] === 0){
@@ -273,8 +274,21 @@ function cooking(){
         if(num_components < 3){
             document.getElementById('text_popup').innerHTML = 'You added too few <span>components</span> to the pizza. <br>The minimum number of <span>components</span> is 3 !!!';
             viewPopup();
+            return;
         }
     }
+    sendObj = finalPizzaObj;
+    sendObj["total_cost"] = finalCostPizza.toFixed(2);
+    console.log("Объект для отправки");
+    console.log(sendObj);
+    fetch('https://json-app-server.azurewebsites.net/pizza', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(sendObj)
+    }).then(res => res.json()).then(console.log);
 
     num_components = 0;
 }
@@ -356,15 +370,6 @@ function cost(num){
     }
     finalPizzaObj.additionally['cost'] = pizzaObj.additionally['cost'];
     console.log(finalPizzaObj);
-    fetch('https://json-app-server.azurewebsites.net/pizza', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(finalPizzaObj)
-    }).then(res => res.json()).then(console.log);
-    console.log(json);
 
     //   Расчет конечной стоимости пиццы с учетом наценки
     if(num < 100){
