@@ -290,7 +290,7 @@ function viewPopup(){
 function closePopup(){
     document.getElementById('popup').style.opacity = '0';
     document.getElementById('popup').style.visibility = 'hidden';
-    document.getElementById('popup_content').style.transform = 'perspective(600px) translate(0, -100%) rotateX(45deg)';
+    document.getElementById('popup_content').style.transform = 'perspective(600px) translate(0, -200%) rotateX(45deg)';
 }
 
 //   Функция расчитывающая стоимость пиццы.
