@@ -274,6 +274,7 @@ function cooking(){
         if(num_components < 3){
             document.getElementById('text_popup').innerHTML = 'You added too few <span>components</span> to the pizza. <br>The minimum number of <span>components</span> is 3 !!!';
             viewPopup();
+            num_components = 0;
             return;
         }
     }
@@ -281,7 +282,7 @@ function cooking(){
     sendObj["total_cost"] = finalCostPizza.toFixed(2);
     console.log("Объект для отправки");
     console.log(sendObj);
-    fetch('https://json-app-server.azurewebsites.net/pizza', {
+    fetch('http://localhost:3000/pizza', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

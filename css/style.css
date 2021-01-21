@@ -120,17 +120,7 @@ button:hover{
     right: 10px;
 
 }
-.result_pizza{
-padding: 20px;
-}
-.result_title{
-    font-size: 40px;
-    color: #fffbf4;
-}
-.result_components{
-    font-size: 30px;
-    color: #fffbf4;
-}
+
 .information_image{
     width: 550px;
     height: 550px;
