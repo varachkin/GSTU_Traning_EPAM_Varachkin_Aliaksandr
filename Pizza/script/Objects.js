@@ -1,4 +1,4 @@
-
+'use strict'
 //****************************  ОБЪЕКТЫ  *******************************//
 class Pizza {
     constructor(dough, size, components, additionally) {
@@ -20,9 +20,9 @@ class Components {
         this.cost = x;
         this.calories = y;
     }
-    validateData(){
-        if(typeof x !== "number" || typeof y !== "number" ){
-            return alert('Typeof cost or calories not number');
+    validateData(obj, key){
+        if(typeof obj[key]['cost'] !== "number" || typeof obj[key]['calories'] !== "number" ){
+            return alert('Typeof cost or calories in key '+ key + ' not number');
         }
     }
 }
@@ -36,7 +36,7 @@ let Thin = new Components(1,200);
 let Thick = new Components(4,500);
 let Calzone = new Components(3,300);
 let Italian = new Components(3,200);
-let Standard = new Components(2,300);
+let Standard = new Components(1,300);
 
 let Size_32 = new Components(0.01, 0.01);
 let Size_40 = new Components(0.3, 0.3);
@@ -101,3 +101,16 @@ let AdditionallyObj = {
     Wasabi,
 };
 //****************************  ОБЪЕКТЫ  *******************************//
+
+for(let key in DoughObj){
+    DoughObj[key].validateData(DoughObj, key);
+}
+for(let key in SizeObj){
+    SizeObj[key].validateData(SizeObj, key);
+}
+for(let key in ComponentsObj){
+    ComponentsObj[key].validateData(ComponentsObj, key);
+}
+for(let key in AdditionallyObj){
+    AdditionallyObj[key].validateData(AdditionallyObj, key);
+}
