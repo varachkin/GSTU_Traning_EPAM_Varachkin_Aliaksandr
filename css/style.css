@@ -10,7 +10,8 @@ body{
     height: 100vh;
 }
 a{
-    display: block;
+    display: flex;
+    align-items: center;
     position: absolute;
     top: 10px;
     left: 10px;
@@ -22,6 +23,10 @@ a{
     font-family: Roboto, sans-serif;
     font-size: 26px;
     color: #d8d8d8;
+}
+span{
+    font-size: 26px;
+    margin: 0 10px;
 }
 a:hover{
     background-color: #2475b7;
@@ -39,17 +44,56 @@ a:hover{
     left: 60px;
     top: 60px;
 }
-.cap img{
-    bottom: 0;
-}
 .bucket{
     position: absolute;
     left: 100px;
     top: 370px;
 }
-.paper img{
+.img-1{
     position: absolute;
     top: 600px;
     left: 700px;
+    width: 200px;
+}
+.img-2{
+    position: absolute;
+    top: 150px;
+    left: 750px;
+    width: 200px;
+}
+.img-3{
+    position: absolute;
+    top: 440px;
+    left: 620px;
+    width: 200px;
+}
+.img-4{
+    position: absolute;
+    top: 340px;
+    left: 890px;
+    width: 200px;
+}
+.img-5{
+    position: absolute;
+    top: 120px;
+    left: 930px;
+    width: 200px;
+}
+.img-6{
+    position: absolute;
+    top: 190px;
+    left: 500px;
+    width: 200px;
+}
+.img-7{
+    position: absolute;
+    top: 560px;
+    left: 960px;
+    width: 200px;
+}
+.img-8{
+    position: absolute;
+    top: 700px;
+    left: 550px;
     width: 200px;
 }
