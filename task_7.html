@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Trash</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <a href="index.html">
-    <span class="material-icons">
+    <span class="material-icons" style="margin-right: 10px">
         west
     </span>
      Back
 </a>
-<div class="trash">
-    <div class="cap">
+<div class="trash" ondragenter="openCap()" ondragleave="closeCap()" id="trash">
+    <div class="cap" id="">
         <img src="img/cap.png" alt="">
     </div>
     <div class="bucket">
