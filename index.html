@@ -9,15 +9,37 @@
     <main>
         <h1>TO DO LIST</h1>
         <div class="list">
-            <div class="list-first">
-                <input type="text">
-            </div>
-            <div class="list-second">
+            <div class="list-information">
+                <div class="list-first">
+                    Name event
+                </div>
 
+                <div class="list-second">
+                    Date event
+                </div>
+
+                <div class="list-third">
+                    Description event
+                </div>
+
+            </div>
+
+            <div class="list-fourth">
+                Log
+            </div>
+
+            <div class="list-fifth">
+                <label for="">Date<input type="date"></label>
+                <label for="">Time<input type="time"></label>
+                <label for="">Name<input type="text"></label>
+                <label for="">Priority<input type="checkbox" class="checkbox" onclick="enterPriority()"><div class="priority">Low</div></label>
+                <label for="">Description<input type="text"></label>
+                <div class="button-block">
+                    <button>Edit</button>
+                    <button>Save</button>
+                </div>
             </div>
         </div>
-
-
     </main>
 <script src="script/script.js"></script>
 </body>
